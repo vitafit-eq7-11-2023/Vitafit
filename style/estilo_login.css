@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+:root{
+    --fondo: #BFEBC5;
+    --text: black;
+    --borde: white;
+}
+body{
+    background-color: var(--fondo);
+    font-family: Comfortaa;
+    overflow: auto;
+    font-weight: 300;
+    color: var(--text);
+}
+.main{
+    max-height: 400px;
+    overflow-y: auto;
+}
+.login{
+    width: 50%;
+    left: 26%;
+    position: absolute;
+}
+.form-content .cuerpo{
+    background-color: #C2E9D4;
+    padding: 35px 45px;
+    border-bottom: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.form-content .form{
+    background-color: white;
+    padding: 40px 50px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.form-content .btn_ingresar{
+  padding: 10px 20px;
+  background-color: var(--fondo);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.form-content .btn_ingresar:hover{
+    transform: scale(1.1);
+}
+.form-content .btn_registrar{
+    padding: 10px 20px;
+    background-color: var(--fondo);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.form-content .btn_registrar:hover{
+    transform: scale(1.1);
+}

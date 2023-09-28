@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+:root{
+    --fondo: #BFEBC5;
+    --text: black;
+    --borde: white;
+}
+body{
+    background-color: var(--borde);
+    position: relative;
+    font-family: Comfortaa;
+    overflow: hidden;
+    font-weight: 300;
+    color: var(--text);
+}
+.bg-primary{ 
+    background-color: var(--fondo) !important; 
+}
+.bg-light{
+    background-color: #BFEBC5 !important;
+}
+#sidebar-container{
+    min-height: 100%;
+}
+#sidebar-container .logo{
+    padding: .875rem 1.25rem;
+}
+#sidebar-container .menu{
+    height: 100%;
+}
+#sidebar-container .btn_recetas {
+    display: inline-block;
+    background-color: var(--fondo);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16;
+    transition: transform 0.3s ease;
+    padding: 10px;
+}
+#sidebar-container .btn_recetas:hover {
+    transform: scale(1.1);
+}
+#sidebar-container .btn_rutinas {
+    display: inline-block;
+    padding: 10px 80px;
+    background-color: var(--fondo);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16;
+    transition: transform 0.3s ease;
+}
+#sidebar-container .btn_rutinas:hover {
+    transform: scale(1.1);
+}
+#sidebar-container .btn_p_alimenticio {
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: var(--fondo);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16;
+    transition: transform 0.3s ease;
+}
+#sidebar-container .btn_p_alimenticio:hover {
+    transform: scale(1.1);
+}
+#sidebar-container .btn_seguimiento {
+    display: inline-block;
+    padding: 10px 55px;
+    background-color: var(--fondo);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16;
+    transition: transform 0.3s ease;
+}
+#sidebar-container .btn_seguimiento:hover {
+    transform: scale(1.1);
+}
+#sidebar-container .btn_calendario {
+    display: inline-block;
+    padding: 10px 67px;
+    background-color: var(--fondo);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16;
+    transition: transform 0.3s ease;
+}
+#sidebar-container .btn_calendario:hover {
+    transform: scale(1.1);
+}
+#sidebar-container .btn_macros {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--fondo);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16;
+    transition: transform 0.3s ease;
+}
+#sidebar-container .btn_macros:hover {
+    transform: scale(1.1);
+}
+#sidebar-container .btn_configuracion {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--fondo);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16;
+    transition: transform 0.3s ease;
+}
+#sidebar-container .btn_configuracion:hover {
+    transform: scale(1.1);
+}
+#sidebar-container .div-config{
+    margin-top: 100%;
+}
+.btn-search{
+    right: 10px;
+    bottom: 5px;
+}
+.navbar-mod{
+    height: 3.5rem;
+}
+.dropdown {
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    top: 7px;
+} 
+.dropbtn {
+    background-color: var(--fondo);
+    color: var(--text);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%;
+    top: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-align: center;
+}
+.dropdown-content a {
+    color: #000;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+#content{
+    overflow-y: auto;
+    height: 100vh;
+    padding-bottom: 5rem;
+}
+.btn{
+    border: 0;
+}
+.btn_primary{
+    background-color: var(--fondo) !important;
+}
+.btn_primary:hover{
+    background-color: var(--fondo) !important;
+}
