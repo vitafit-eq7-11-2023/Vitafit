@@ -1,3 +1,5 @@
+
+
 <style>
     body {
       padding: 20px;
@@ -19,10 +21,15 @@
       display: block;
       margin: 0 auto;
     }
+    
+
+
+
   </style>
 
   <div class="container">
-    <h1>Recetas de comidas.</h1>
+    <h1>Recetas de comidas</h1>
+    <p>Este espacio es excelente para los amantes de la cocina. Descubre recetas y diviertete preparandolas </p>
     <div class="row">
       <div class="col-md-12">
         <div class="recipe-card">

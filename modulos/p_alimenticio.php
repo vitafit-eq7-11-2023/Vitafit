@@ -1,3 +1,7 @@
+
+<h1>Plan alimenticio</h1>
+<p>En este espacio podremos tener acceso a un plan alimenticio creadso especialmente para ti</p>
+
 <div class="p-5 mb-4 bg-body-tertiary rounded-3" id="desayunito">
 <style>
       .bd-placeholder-img {
