@@ -7,18 +7,11 @@
 body{
     background-color: var(--fondo);
     font-family: Comfortaa;
-    overflow: auto;
     font-weight: 300;
     color: var(--text);
 }
-.main{
-    max-height: 400px;
-    overflow-y: auto;
-}
 .login{
     width: 80%;
-    left: 50%;
-    position: absolute;
 }
 .form-content .cuerpo{
     background-color: #C2E9D4;

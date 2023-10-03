@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="js/jQuery1.9.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="style/estilo_login.css">
+        <link rel="stylesheet" type="text/css" href="style/estilos_login.css">
         <meta charset="utf-8">
     </head>
     <body>

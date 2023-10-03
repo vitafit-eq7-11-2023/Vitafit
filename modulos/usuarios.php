@@ -135,12 +135,12 @@
                         </div>
                         <br>
                         <div class="row">
-                            <label for="exampleInputEmail1">Ingrasar contraseña</label>
+                            <label for="exampleInputEmail1">Ingresar contraseña</label>
                             <div class="col">
-                            <input type="password" class="form-control" placeholder="Contraseña" name="contra">
+                            <input type="password" class="form-control" placeholder="Contraseña" name="contra" required>
                             </div>
                             <div class="col">
-                            <input type="password" class="form-control" placeholder="Confirmar contraseña" name="contra_confirm">
+                            <input type="password" class="form-control" placeholder="Confirmar contraseña" name="contra_confirm" required>
                             </div>
                         </div>
                         <br>
