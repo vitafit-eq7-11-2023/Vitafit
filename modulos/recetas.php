@@ -1,68 +1,77 @@
-
-
 <style>
-    body {
-      padding: 20px;
-      background-color: #BFEBC5;
+    .table{
+        font-size: 12px;
     }
-    .recipe-card {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      background-color: #ffffff;
-      padding: 15px;
-      margin-bottom: 20px;
+    .thead{
+        background-color:#BFEBC5;
     }
-    .recipe-card h2, .recipe-card p, .recipe-card .prepare-button {
-      text-align: center;
+    .btn_consulta{
+        background-color:#BFEBC5;
+        padding: 10px 20px;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
     }
-    .prepare-button {
-      background-color: #BFEBC5;
-      color: #ffffff;
-      display: block;
-      margin: 0 auto;
+    .btn_consulta:hover{
+        transform: scale(1.1);
+    }
+    .cuerpo{
+        background-color:white;
+    }
+    .receta{
+      background-color:#BFEBC5 ;
+      height: 100px;
     }
     
-
-
-
-  </style>
-
-  <div class="container">
-    <h1>Recetas de comidas</h1>
-    <p>Este espacio es excelente para los amantes de la cocina. Descubre recetas y diviertete preparandolas </p>
+</style>
+<div class="container cuerpo">
+<center>
+<div class="col-md-12">
+<form method="post"action="dashboard.php?mod=recetas">
+  <div class="form-group">
+    <br>
+    <h3>Recetas</h3>
     <div class="row">
-      <div class="col-md-12">
-        <div class="recipe-card">
-          <h2>Costillas a la BBQ</h2>
-          <img src="https://example.com/tacos.jpg" alt="Costillas a la BBQ">
-          <p>Deliciosas costillas con salsa BBQ.</p>
-          <a href="#" class="btn btn-primary btn-sm btn-block prepare-button">Preparar</a>
-        </div>
+      <div class="col-md-10">
+        <input type="text" class="form-control" name="txtconsulta" placeholder="Nombre">
       </div>
-      <div class="col-md-12">
-        <div class="recipe-card">
-          <h2>Pasta Alfredo</h2>
-          <img src="https://example.com/pasta.jpg" alt="Pasta Alfredo">
-          <p>Una cremosa pasta Alfredo con champiñones y espinacas.</p>
-          <a href="#" class="btn btn-primary btn-sm btn-block prepare-button">Preparar</a>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="recipe-card">
-          <h2>Ensalada César</h2>
-          <img src="https://example.com/ensalada.jpg" alt="Ensalada César">
-          <p>Clásica ensalada César con pollo a la parrilla.</p>
-          <a href="#" class="btn btn-primary btn-sm btn-block prepare-button">Preparar</a>
-        </div>
-      </div>
-     
+      <button type="submit" class="btn_consulta col-md-2" name="btn_consulta">Buscar</button>
     </div>
   </div>
-
-
- 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
- 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
- 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</forms>
+<div class="recetas">
+<div class="row" style="justify-content: space-between;">
+    <?php
+      include "conexion.php";
+      if (isset($_SESSION['documento'])){
+        if(isset($_POST['btn_receta'])){
+          echo "<script>window.location='dashboard.php?mod=info_receta';</script>";
+        }
+      
+      if(isset($_POST['btn_consulta'])){  
+      $dato=$_POST["txtconsulta"];
+      $consulta=mysqli_query($conexion,"SELECT * FROM receta WHERE nombre LIKE '%$dato%';") or die ($conexion."Error en la consulta");
+      $cantidad = mysqli_num_rows($consulta);
+      if($cantidad > 0){
+      while($fila=mysqli_fetch_array($consulta)){
+    ?>
+        <div class="receta col-md-3">
+        <div class="nombre_receta">
+          <h6><?php echo $fila['nombre'];?></h6>
+        </div>
+        <button type="submit" class="btn_receta col-md-2" name="btn_receta"></button>
+        </div>
+    <?php
+      }
+      }
+      }
+      }
+    ?>
+</div>
+</div>
+</div>
+</center>
+</div>

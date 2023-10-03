@@ -6,8 +6,8 @@
     --borde: white;
 }
 .login{
-    width: 50%;
-    left: 26%;
+    width: 80%;
+    left: 50%;
 }
 .form-content .cuerpo{
     background-color: #C2E9D4;
@@ -70,14 +70,13 @@
                       <br><br>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Ingrese correo</label>
-                            <input type="email" class="form-control" aria-describedby="emailHelp" id="exampleFormControlInput1" placeholder="name@example.com" name="correo">
+                            <input type="email" class="form-control" aria-describedby="emailHelp" id="exampleFormControlInput1" placeholder="name@example.com" name="correo" required>
                             <small id="emailHelp" class="form-text text-muted">No compartas tu correo con nadie</small>
                         </div>
-                        <br>
                         <div class="row">
                             <label for="exampleInputEmail1">Ingrese nombres</label>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="primer nombre" name="name1">
+                            <input type="text" class="form-control" placeholder="primer nombre" name="name1" required>
                             </div>
                             <div class="col">
                             <input type="text" class="form-control" placeholder="segundo nombre" name="name2">
@@ -87,7 +86,7 @@
                         <div class="row">
                             <label for="exampleInputEmail1">ingrese apellidos</label>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="primer apellido" name="ape1">
+                            <input type="text" class="form-control" placeholder="primer apellido" name="ape1" required>
                             </div>
                             <div class="col">
                             <input type="text" class="form-control" placeholder="segundo apellido" name="ape2">
@@ -99,20 +98,20 @@
                           <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="celular" name="tel">
                         </div>
                         <br>
-                        <div class="form-group">
-                          <label for="exampleFormControlSelect1">Tipo de documento</label>
-                          <select class="form-control" id="exampleFormControlSelect1" name="t_doc">
+                        <div class="row">
+                          <label for="exampleFormControlSelect1">Tipo y numero de documento</label>
+                          <div class="col-4">
+                          <select class="form-control" id="exampleFormControlSelect1" name="t_doc" required>
                             <option>Seleccione</option>
                             <option value="TI">Tarjeta de identidad</option>
                             <option value="CC">Cedula cuidadana</option>
                             <option value="RC">Registro civil</option>
                             <option value="CE">cedula de estranjeria</option>
                           </select>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Ingrese numero de documento</label>
-                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="Documento" name="doc">
+                          </div>
+                          <div class="col-8">
+                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="Documento" name="doc" required>
+                          </div>  
                         </div>
                         <br>
                         <div class="row">
@@ -125,7 +124,7 @@
                             </select>
                             </div>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Edad" name="edad">
+                            <input type="text" class="form-control" placeholder="Edad" name="edad" required>
                             </div>
                             <div class="col">
                             <input type="text" class="form-control" placeholder="Peso en kg" name="peso">
@@ -135,18 +134,14 @@
                             </div>
                         </div>
                         <br>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Ingrese la contraseña</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="contraseña" name="contra">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                          <label for="exampleFormControlSelect1">Tipo de rol</label>
-                          <select class="form-control" id="exampleFormControlSelect1" name="t_rol">
-                            <option>Seleccione</option>
-                            <option value="1">Usuario</option>
-                            <option value="2">Administrador</option>
-                          </select>
+                        <div class="row">
+                            <label for="exampleInputEmail1">Ingrasar contraseña</label>
+                            <div class="col">
+                            <input type="password" class="form-control" placeholder="Contraseña" name="contra">
+                            </div>
+                            <div class="col">
+                            <input type="password" class="form-control" placeholder="Confirmar contraseña" name="contra_confirm">
+                            </div>
                         </div>
                         <br>
                         <button type="submit" class="btn_registrar" name="btn_registrar">Registrar</button>

@@ -405,6 +405,11 @@ session_start();
                                                 {
                                                   require_once("modulos/gestionar.php");
                                                 }
+                                                else
+                                                  if(@ $_GET['mod']=="info_receta")
+                                                  {
+                                                    require_once("modulos/info_receta.php");
+                                                  }
             
       ?>
       <footer class="footer pt-3  ">

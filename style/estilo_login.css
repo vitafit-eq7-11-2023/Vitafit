@@ -16,8 +16,8 @@ body{
     overflow-y: auto;
 }
 .login{
-    width: 50%;
-    left: 26%;
+    width: 80%;
+    left: 50%;
     position: absolute;
 }
 .form-content .cuerpo{
