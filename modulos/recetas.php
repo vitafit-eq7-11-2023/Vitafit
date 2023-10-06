@@ -23,7 +23,10 @@
     }
     .receta{
       background-color:#BFEBC5 ;
-      height: 100px;
+      height: 200px;
+      width: 300px;
+      margin: 10px;
+      border-radius: 10px;
     }
     
 </style>
@@ -43,7 +46,7 @@
   </div>
 </forms>
 <div class="recetas">
-<div class="row" style="justify-content: space-between;">
+<div class="row">
     <?php
       include "conexion.php";
       if (isset($_SESSION['documento'])){
@@ -58,7 +61,9 @@
       if($cantidad > 0){
       while($fila=mysqli_fetch_array($consulta)){
     ?>
-        <div class="receta col-md-3">
+        <br>
+        <br><br>
+        <div class="receta col-md-4">
         <div class="nombre_receta">
           <h6><?php echo $fila['nombre'];?></h6>
         </div>
