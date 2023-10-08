@@ -3,7 +3,7 @@
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <box-icon type="regular" name="cog" color="black" size="22px"></box-icon>
             </div>
-            <span class="nav-link-text ms-1">Usuarios</span>
+            <span class="nav-link-text ms-1">Perfil</span>
           </a>
         </li>
         <?php
