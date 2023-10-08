@@ -63,7 +63,7 @@
     ?>
         <br>
         <br><br>
-        <div class="receta col-md-4">
+        <div class="receta col-md-4 shadow-md">
         <div class="nombre_receta">
           <h6><?php echo $fila['nombre'];?></h6>
         </div>
@@ -73,7 +73,27 @@
       }
       }
       }
+      else{
+        $dato='';
+        $consulta=mysqli_query($conexion,"SELECT * FROM receta WHERE nombre LIKE '%$dato%';") or die ($conexion."Error en la consulta");
+        $cantidad = mysqli_num_rows($consulta);
+        if($cantidad > 0){
+        while($fila=mysqli_fetch_array($consulta)){
+          ?>
+          <br>
+          <br><br>
+          <div class="receta col-md-4 shadow-md">
+          <div class="nombre_receta">
+            <h6><?php echo $fila['nombre'];?></h6>
+          </div>
+          <button type="submit" class="btn_receta col-md-2" name="btn_receta"></button>
+          </div>
+          <?php
+        }
       }
+      } 
+      }
+      
     ?>
 </div>
 </div>
