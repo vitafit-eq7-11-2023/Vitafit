@@ -76,11 +76,14 @@ if ($hora>=12 and $hora<=18)
 </div>
 </div>
 <br>
+
 <h4>Tu plan</h4>
 <div class="container-pre">
+
 <div class="row" style="justify-content: space-between;">
 <div class="col-md-3 container-info-1">
 </div>
+    
 <div class="col-md-4 container-info-2">
 <div>
     <h3>omaga</h3>
@@ -91,6 +94,7 @@ if ($hora>=12 and $hora<=18)
 </div>
 </div>
 </div>
+
 
 <script>
 const label = ['Enero', 'Febrero', 'Marzo', 'Abril']

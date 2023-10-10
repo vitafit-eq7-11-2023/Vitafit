@@ -1,106 +1,130 @@
+<center>
+<?php
+// Obtener el mes y año actual
+$mes_actual = date("n");
+$año_actual = date("Y");
+
+// Días de la semana
+$dias_semana = array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+
+// Nombres de los meses
+$nombres_meses = array(
+    1 => "Enero",
+    2 => "Febrero",
+    3 => "Marzo",
+    4 => "Abril",
+    5 => "Mayo",
+    6 => "Junio",
+    7 => "Julio",
+    8 => "Agosto",
+    9 => "Septiembre",
+    10 => "Octubre",
+    11 => "Noviembre",
+    12 => "Diciembre"
+);
+
+// Número de días en el mes actual
+$num_dias_mes = date("t", mktime(0, 0, 0, $mes_actual, 1, $año_actual));
+
+// Obtener el primer día de la semana del mes
+$primer_dia_semana = date("w", mktime(0, 0, 0, $mes_actual, 1, $año_actual));
+
+// Crear la tabla del calendario
+echo "<h2>{$nombres_meses[$mes_actual]} $año_actual</h2>";
+echo "<table border='1'>";
+echo "<tr>";
+foreach ($dias_semana as $dia) {
+    echo "<th>$dia</th>";
+}
+echo "</tr>";
+
+// Llenar los días en blanco hasta el primer día de la semana
+echo "<tr>";
+for ($i = 0; $i < $primer_dia_semana; $i++) {
+    echo "<td></td>";
+}
+
+for ($dia = 1; $dia <= $num_dias_mes; $dia++) {
+  // Comprueba si el día actual es igual al día en el bucle
+  $es_dia_actual = ($dia == date("j") && $mes_actual == date("n") && $año_actual == date("Y"));
+
+  // Agrega una clase CSS especial si es el día actual
+  $clase_css = $es_dia_actual ? 'dia-actual' : '';
+
+  echo "<td class='$clase_css'>$dia</td>";
+
+  // Saltar a la siguiente fila después de cada séptimo día (fin de semana)
+  if (($dia + $primer_dia_semana) % 7 == 0) {
+      echo "</tr>";
+      if ($dia != $num_dias_mes) {
+          echo "<tr>";
+      }
+  }
+}
+
+// Completar la última fila con celdas vacías si es necesario
+$ultima_celda = ($num_dias_mes + $primer_dia_semana) % 7;
+if ($ultima_celda != 0) {
+    for ($i = 0; $i < (7 - $ultima_celda); $i++) {
+        echo "<td></td>";
+    }
+    echo "</tr>";
+}
+
+echo "</table>";
+?>
+</center>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&display=swap');
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: black;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        color: black
+    }
+
+    th,  {
+        padding: 40px;
+        text-align: center;
+        color: black;
+        background-color: ;
+    
+    }
+    td{padding: 10px;
+        text-align: center;
+        text color: black;
+        background-color: white;}
+
+    th {
+        text-align: center;
+        background-color: ##BFEBC5;
+        color: black;
+    }
+
+    td {
+        border: 1px solid #ccc;
+    }
+
+    td:hover {
+        background-color: #f;
+    }
+
+    tr:nth-child(even) td {
+        background-color: #ffff;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+        background-color:#ffff;
+    }
+    .dia-actual {
+        background-color: #BFEBC5; /* Cambia el color de fondo para resaltar */
+        font-weight: bold; /* Hace que el texto del día sea más audaz */
+    }
 </style>
 
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-
-<center>
-<svg width="800" height="600" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <svg>
-    <rect x="10" y="10" height="377" width="640" style="fill: #ffffff" />
-    <rect x="30" y="70" rx="5" ry="5" height="33" width="600" style="fill: #BFEBC5" />
-    <text id="month_name" x="300" y="50" fill=black  style="font-size:22px; font-family: Arial; font-weight:bold;"></text>
-    <rect x="45" y="159" rx="5" ry="5" height="33" width="40" style="fill:#BFEBC5 " />
-    <svg x="10" y="70">
-      <g>
-        <text x="35" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">LUN</text>
-        <text x="126" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">MAR</text>
-        <text x="216" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">MIE</text>
-        <text x="304" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">JUE</text>
-        <text x="396" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">VIE</text>
-        <text x="473" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">SAB</text>
-        <text x="560" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">DOM</text>
-      </g>
-    </svg>
-    <svg x="10" y="120">
-      <g>
-        <text x="49" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;"></text>
-        <text x="141" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;"></text>
-        <text x="230" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">1</text>
-        <text x="317" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">2</text>
-        <text x="405" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">3</text>
-        <text x="482" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">4</text>
-        <text x="577" y="24" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">5</text>
-      </g>
-      <g>
-        <text x="50" y="63" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">6</text>
-        <text x="141" y="63" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">7</text>
-        <text x="229" y="63" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">8</text>
-        <text x="315" y="63" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">9</text>
-        <text x="398" y="63" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">10</text>
-        <text x="477" y="63" style="fill: rgb(0, 0, 0); font-size:20px; font-family: Arial; font-weight:bold;">11</text>
-        <text x="570" y="63" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">12</text>
-      </g>
-      <g>
-        <text x="43" y="104" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">13</text>
-        <text x="134" y="104" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">14</text>
-        <text x="221" y="104" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">15</text>
-        <text x="309" y="104" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">16</text>
-        <text x="399" y="104" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">17</text>
-        <text x="477" y="104" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">18</text>
-        <text x="571" y="104" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">19</text>
-      </g>
-      <g>
-        <text x="43" y="145" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">20</text>
-        <text x="134" y="145" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">21</text>
-        <text x="221" y="145" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">22</text>
-        <text x="309" y="145" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">23</text>
-        <text x="399" y="145" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">24</text>
-        <text x="477" y="145" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">25</text>
-        <text x="571" y="145" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">26</text>
-      </g>
-      <g>
-        <text x="43" y="186" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">27</text>
-        <text x="134" y="186" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">28</text>
-        <text x="221" y="186" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">29</text>
-        <text x="309" y="186" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">30</text>
-        <text x="399" y="186" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;">31</text>
-        <text x="475" y="186" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;"></text>
-        <text x="570" y="186" style="fill: #000000; font-size:20px; font-family: Arial; font-weight:bold;"></text>
-      </g>
-    </svg>
-  </svg>
-
-
-</svg>
-<script>
-    window.onload = function() {
-  showMonth();
-};
-
-
-function showMonth() {
-  var month = new Array();
-  month[0] = "January";
-  month[1] = "February";
-  month[2] = "March";
-  month[3] = "April";
-  month[4] = "May";
-  month[5] = "June";
-  month[6] = "July";
-  month[7] = "August";
-  month[8] = "September";
-  month[9] = "October";
-  month[10] = "November";
-  month[11] = "December";
-  var d = new Date();
-  var n = month[d.getMonth()];
-  document.getElementById("month_name").innerHTML = n;
-}
-</script>
-</center>

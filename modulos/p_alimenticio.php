@@ -72,6 +72,7 @@
         --bs-btn-active-bg: #5a23c8;
         --bs-btn-active-border-color: #5a23c8;
       }
+      
       .bd-mode-toggle {
         z-index: 1500;
       }
@@ -100,8 +101,8 @@
     </style>
   
       <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold" style="color:#FFFFFF;">Platos principales</h1>
-        <p class="col-md-8 fs-4" style="color:#FFFFFF;">Qué tal si para empezar hacemos un desayuno balanceado con bastantes calorías para tener energía a través de todo el día y para aumentar esos kilos que deseas.</p>
+        <h1 class="display-5 fw-bold" style="color: black;">Platos principales</h1>
+        <p class="col-md-8 fs-4" style="color: black;">Qué tal si para empezar hacemos un desayuno balanceado con bastantes calorías para tener energía a través de todo el día y para aumentar esos kilos que deseas.</p>
         <button class="btn btn-primary btn-lg" type="button">¡Vamos!</button>
 
       </div>
