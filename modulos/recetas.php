@@ -6,7 +6,7 @@
         background-color:#BFEBC5;
     }
     .btn_consulta{
-        background-color:#BFEBC5;
+        background-color:#ffffff;
         padding: 10px 20px;
         color: black;
         border: none;
@@ -18,19 +18,18 @@
     .btn_consulta:hover{
         transform: scale(1.1);
     }
-    .cuerpo{
-        background-color:white;
-    }
     .receta{
       background-color:#BFEBC5 ;
       height: 200px;
-      width: 300px;
-      margin: 10px;
+      margin: 4%;
+      border-radius: 10px;
+    }
+    .recetas{
+      background-color:white ;
       border-radius: 10px;
     }
     
 </style>
-<div class="container cuerpo">
 <center>
 <div class="col-md-12">
 <form method="post"action="dashboard.php?mod=recetas">
@@ -45,7 +44,7 @@
     </div>
   </div>
 </forms>
-<div class="recetas">
+<div class="recetas col-md-11">
 <div class="row">
     <?php
       include "conexion.php";
@@ -53,23 +52,25 @@
         if(isset($_POST['btn_receta'])){
           echo "<script>window.location='dashboard.php?mod=info_receta';</script>";
         }
-      
       if(isset($_POST['btn_consulta'])){  
       $dato=$_POST["txtconsulta"];
       $consulta=mysqli_query($conexion,"SELECT * FROM receta WHERE nombre LIKE '%$dato%';") or die ($conexion."Error en la consulta");
       $cantidad = mysqli_num_rows($consulta);
       if($cantidad > 0){
       while($fila=mysqli_fetch_array($consulta)){
-    ?>
+        ?>
         <br>
         <br><br>
-        <div class="receta col-md-4 shadow-md">
+        <div class="receta col-md-3 col-lg-3 col-sm-3 col-xs-3 shadow-md">
         <div class="nombre_receta">
           <h6><?php echo $fila['nombre'];?></h6>
         </div>
-        <button type="submit" class="btn_receta col-md-2" name="btn_receta"></button>
+        <form method="post"action="dashboard.php?mod=info_receta">
+        <input type="text" class="form-control" name="nombre_receta" value="<?php echo $fila['nombre'];?>" hidden>
+        <button type="submit" class="btn_consulta col-md-2" name="btn_receta"></button>
+        </form>
         </div>
-    <?php
+        <?php
       }
       }
       }
@@ -82,11 +83,14 @@
           ?>
           <br>
           <br><br>
-          <div class="receta col-md-4 shadow-md">
+          <div class="receta col-md-3 col-lg-3 col-sm-3 col-xs-3 shadow-md">
           <div class="nombre_receta">
             <h6><?php echo $fila['nombre'];?></h6>
           </div>
-          <button type="submit" class="btn_receta col-md-2" name="btn_receta"></button>
+          <form method="post"action="dashboard.php?mod=info_receta">
+          <input type="text" class="form-control" name="nombre_receta" value="<?php echo $fila['nombre'];?>" hidden>
+          <button type="submit" class="btn_consulta col-md-2" name="btn_receta"></button>
+          </form>
           </div>
           <?php
         }
