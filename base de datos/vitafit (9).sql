@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2023 a las 03:45:54
+-- Tiempo de generación: 11-10-2023 a las 23:06:07
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -92,12 +92,41 @@ INSERT INTO `ejercicio` (`id_ejercicio`, `nombre`, `descripcion`, `video`) VALUE
 --
 
 CREATE TABLE `macros` (
-  `id_alimentos` int(1) NOT NULL,
-  `proteina` int(8) NOT NULL,
-  `grasas` int(8) NOT NULL,
-  `carbohidratos` int(8) NOT NULL,
-  `calorias` int(8) NOT NULL
+  `id_alimentos` int(2) NOT NULL,
+  `proteina` float NOT NULL,
+  `grasas` float NOT NULL,
+  `carbohidratos` float NOT NULL,
+  `calorias` float NOT NULL,
+  `Nombre_alimento` varchar(20) NOT NULL,
+  `Fibra` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `macros`
+--
+
+INSERT INTO `macros` (`id_alimentos`, `proteina`, `grasas`, `carbohidratos`, `calorias`, `Nombre_alimento`, `Fibra`) VALUES
+(1, 0, 0, 13, 52, 'Manzana', 2),
+(2, 16, 23, 0, 273, 'Carne de cerdo', 0),
+(3, 27, 14, 0, 239, 'pollo', 0),
+(4, 23, 3, 0, 119, 'Atun', 0),
+(5, 3.4, 1, 5, 42, 'Leche', 0),
+(6, 2, 0, 28, 130, 'Arroz', 0.4),
+(7, 9, 2, 17, 119, 'Garbanzos', 10),
+(8, 20, 1.2, 63, 347, 'frijol', 16),
+(9, 0.9, 0.2, 7.3, 40, 'Zanahoria', 3),
+(10, 0, 0, 6, 35, 'Berenjena', 2),
+(11, 3, 0, 2, 28, 'Brócoli', 3),
+(12, 1, 0, 1, 23, 'Coliflor', 2),
+(13, 2, 0, 2, 22, 'Espárragos', 2),
+(14, 0, 0, 11, 53, 'Mandarina', 1.9),
+(15, 0, 0, 13, 60, 'Mango', 1.6),
+(16, 0, 0, 12, 57, 'Arándanos', 2.4),
+(17, 0, 0, 57, 10, 'Uvas', 3.9),
+(18, 0, 0, 8, 25, 'jugo de limon', 0.4),
+(19, 0, 0, 10, 45, 'Jugo de naranja', 0.4),
+(20, 0, 0, 4, 28, 'Nabo', 1.7),
+(21, 1.5, 0, 12, 61, 'Puerro', 1);
 
 -- --------------------------------------------------------
 
@@ -331,7 +360,7 @@ ALTER TABLE `ejercicio`
 -- AUTO_INCREMENT de la tabla `macros`
 --
 ALTER TABLE `macros`
-  MODIFY `id_alimentos` int(1) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_alimentos` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `plan_alimenticio`
