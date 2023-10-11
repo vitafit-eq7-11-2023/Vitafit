@@ -267,7 +267,7 @@ session_start();
                 else
                     if(@ $_GET['mod']=="rutinas")
                     {
-                      require_once("modulos/rutinas.php");
+                      require_once("modulos/rutinas/rutinas.php");
                     }
                     else
                         if(@ $_GET['mod']=="p_alimenticio")
@@ -309,6 +309,12 @@ session_start();
                                                   {
                                                     require_once("modulos/info_receta.php");
                                                   }
+                                                  else
+                                                    if(@ $_GET['mod']=="selector_rutina")
+                                                    {
+                                                     require_once("modulos/rutinas/selector_rutina.php");
+                                                    }
+            
             
       ?>
       <footer class="footer pt-3  ">
