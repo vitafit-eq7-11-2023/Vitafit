@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2023 a las 20:33:53
+-- Tiempo de generación: 13-10-2023 a las 03:50:48
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -54,8 +54,8 @@ CREATE TABLE `calendario` (
 
 CREATE TABLE `ejercicio` (
   `id_ejercicio` int(3) NOT NULL,
-  `nombre` varchar(20) NOT NULL,
-  `descripcion` varchar(400) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(1000) NOT NULL,
   `video` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -83,7 +83,19 @@ INSERT INTO `ejercicio` (`id_ejercicio`, `nombre`, `descripcion`, `video`) VALUE
 (17, 'flexiones', '4 series de 15 repeticiones ', ''),
 (18, 'flexiones isometrica', '4 series de 7 repeticiones ', ''),
 (19, 'flexión declinadas', '4 series de 12 repeticiones ', ''),
-(20, 'flexión inclinada', '4 series de 12 repeticiones', '');
+(20, 'flexión inclinada', '4 series de 12 repeticiones', ''),
+(21, 'Press de banca', 'Realizar con un peso con el que pueda realizar 12 repeticiones \r\n\r\n4 series de 12 repeticiones\r\n(si puede realizar mas de 12 repeticiones aumenta el peso)', ''),
+(22, 'Press inclinado ', 'Realizar con un peso con el que pueda realizar 12 repeticiones \n\n4 series de 12 repeticiones\n(si puede realizar mas de 12 repeticiones aumenta el peso)\n', ''),
+(23, 'Pec deck', 'Realizar con un peso con el que pueda realizar 12 repeticiones \r\n\r\n4 series de 12 repeticiones\r\n(si puede realizar mas de 12 repeticiones aumenta el peso)', ''),
+(24, 'Fondos', '4 series de las repeticiones que te den\r\n\r\nlos fondos son un ejercicio que requiere mucho control de tu propio peso por ende es difícil de realizar ', ''),
+(25, 'Pull over con mancue', 'Realizar con un peso con el que pueda realizar 12 repeticiones \n\n4 series de 12 repeticiones\n(si puede realizar mas de 12 repeticiones aumenta el peso)\n\n', ''),
+(26, 'Extensión de tríceps en polea ', 'Realizar con un peso con el que pueda realizar 12 repeticiones \r\n\r\n4 series de 12 repeticiones\r\n(si puede realizar mas de 12 repeticiones aumenta el peso)', ''),
+(27, 'Curl de muñeca inverso', '4 series de 12 repeticiones \r\n\r\nSujeta una barra recta o un par de mancuernas con un peso más bien ligero con las palmas de las manos mirando hacia abajo.\r\nApoya los antebrazos en el banco o en las rodillas con las muñecas por fuera.\r\nFlexiona las muñecas hacia arriba de forma lenta y controlada para levantar la barra o las mancuernas.\r\nMantén la contracción durante unos 2 segundos en la parte más alta del ejercicio y vuelve a la posición inicial de forma controlada.', ''),
+(28, 'Remo con barra', 'Realizar con un peso con el que pueda realizar 12 repeticiones \r\n\r\n4 series de 12 repeticiones\r\n(si puede realizar mas de 12 repeticiones aumenta el peso)', ''),
+(29, 'Jalón al pecho ', 'Realizar con un peso con el que pueda realizar 12 repeticiones \r\n\r\n4 series de 12 repeticiones\r\n(si puede realizar mas de 12 repeticiones aumenta el peso)', ''),
+(30, 'Jaca', 'Realizar con un peso con el que pueda realizar 12 repeticiones \r\n\r\n4 series de 12 repeticiones\r\n(si puede realizar mas de 12 repeticiones aumenta el peso)', ''),
+(31, 'Peso muerto', 'Realizar con un peso con el que pueda realizar 12 repeticiones \r\n\r\n4 series de 12 repeticiones\r\n(si puede realizar mas de 12 repeticiones aumenta el peso)', ''),
+(32, 'Hip trusts', 'Realizar con un peso con el que pueda realizar 12 repeticiones \r\n\r\n4 series de 12 repeticiones\r\n(si puede realizar mas de 12 repeticiones aumenta el peso)', '');
 
 -- --------------------------------------------------------
 
@@ -284,6 +296,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`correo`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `celular`, `tipo_documento`, `numero_identificacion`, `edad`, `estatura`, `peso`, `sexo`, `contraseña`, `id_rol`) VALUES
+('santaivndio@gmail.com', 'marisol', '', 'mejia', '', 3103474440, 'TI', 42090940, 57, 160, 60, 'M', '', 1),
 ('benitez@gmail.com', 'Juan', 'José', 'Benitez', 'Lopera', 3006906760, 'TI', 1011397031, 16, 175, 65, 'M', '2614ba8e9cd194b7aacea8bc4c1f2373', 2),
 ('wifijs30@gmail.com', 'ivan', 'dario', 'santa', 'mejia', 3045353311, 'TI', 1020410474, 17, 175, 68, 'M', 'e657b927752e1432c80919fd764dd373', 2);
 
@@ -374,7 +387,7 @@ ALTER TABLE `calendario`
 -- AUTO_INCREMENT de la tabla `ejercicio`
 --
 ALTER TABLE `ejercicio`
-  MODIFY `id_ejercicio` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_ejercicio` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `macros`
