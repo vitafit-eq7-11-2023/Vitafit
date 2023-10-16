@@ -43,15 +43,12 @@
       <button type="submit" class="btn_consulta col-md-2" name="btn_consulta">Buscar</button>
     </div>
   </div>
-</forms>
+</form>
 <div class="recetas col-md-11">
 <div class="row">
     <?php
       include "conexion.php";
       if (isset($_SESSION['documento'])){
-        if(isset($_POST['btn_receta'])){
-          echo "<script>window.location='dashboard.php?mod=info_receta';</script>";
-        }
       if(isset($_POST['btn_consulta'])){  
       $dato=$_POST["txtconsulta"];
       $consulta=mysqli_query($conexion,"SELECT * FROM receta WHERE nombre LIKE '%$dato%';") or die ($conexion."Error en la consulta");

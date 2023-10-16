@@ -314,7 +314,7 @@ session_start();
                                                     {
                                                      require_once("modulos/rutinas/selector_rutina.php");
                                                     }
-            
+
             
       ?>
       <footer class="footer pt-3  ">

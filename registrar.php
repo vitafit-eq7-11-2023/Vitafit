@@ -24,7 +24,7 @@
             </div>
             <div class="col-md-12">
                 <div class="form">
-                    <form action="codigo_agregar.php" method="post">
+                    <form action="codigo_registrar.php" method="post">
                     <img src="img/vitafit_logo.png" alt="vitafit_logo" width="300">
                       <br><br>
                         <div class="form-group">

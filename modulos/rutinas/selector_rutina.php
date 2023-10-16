@@ -5,13 +5,13 @@
     }
     .generador1{
         background-color:#BFEBC5 ;
-        height: 500px;
+        height: 50%;
         margin: 4%;
         border-radius: 10px;
     }
     .generador2{
         background-color:#BFEBC5 ;
-        height: 500px;
+        height: 100%;
         margin: 4%;
         border-radius: 10px;
     }

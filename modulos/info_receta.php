@@ -1,3 +1,8 @@
+
+<div style="
+      background-color:white ;
+      border-radius: 10px;
+    ">
 <?php
 include "conexion.php";
 if (isset($_POST["btn_receta"])){
@@ -23,3 +28,4 @@ if (isset($_POST["btn_receta"])){
     echo $nombre;
 }
 ?>
+</div>
