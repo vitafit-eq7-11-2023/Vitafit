@@ -1,91 +1,147 @@
-
 <style>
-    body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
-
-h1 {
-    color: #333;
-}
-
-form {
-    margin: 20px auto;
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #f4f4f4;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-}
-
-input[type="submit"] {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #555;
-}
+    .btn_generar{
+        background-color:#ffffff;
+        padding: 10px 20px;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .btn_generar:hover{
+        transform: scale(1.1);
+    }
 </style>
 
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Calculadora de Macronutrientes</title>
-</head>
-<body>
-    <h1>Calculadora de Macronutrientes</h1>
-
-    <form method="post">
-        <label for="calorias">Calorías Totales:</label>
-        <input type="text" name="calorias" id="calorias" required>
-        <br><br>
-
-        <label for="proporcion_proteinas">Proporción de Proteínas (%):</label>
-        <input type="text" name="proporcion_proteinas" id="proporcion_proteinas" required>
-        <br><br>
-
-        <label for="proporcion_carbohidratos">Proporción de Carbohidratos (%):</label>
-        <input type="text" name="proporcion_carbohidratos" id="proporcion_carbohidratos" required>
-        <br><br>
-
-        <input type="submit" value="Calcular">
-    </form>
-
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $calorias = $_POST["calorias"];
-        $proporcion_proteinas = $_POST["proporcion_proteinas"];
-        $proporcion_carbohidratos = $_POST["proporcion_carbohidratos"];
-
-        // Calcular cantidades en gramos
-        $proteinas = ($calorias * $proporcion_proteinas) / 100 / 4; // 4 calorías por gramo de proteína
-        $carbohidratos = ($calorias * $proporcion_carbohidratos) / 100 / 4; // 4 calorías por gramo de carbohidrato
-        $grasas = ($calorias - ($proteinas * 4) - ($carbohidratos * 4)) / 9; // 9 calorías por gramo de grasa
-
-        echo "<h2>Resultados:</h2>";
-        echo "Proteínas: " . round($proteinas, 2) . " gramos<br>";
-        echo "Carbohidratos: " . round($carbohidratos, 2) . " gramos<br>";
-        echo "Grasas: " . round($grasas, 2) . " gramos<br>";
+<?php
+      include "conexion.php";
+      if (isset($_SESSION['documento'])){
+      $dato=$_SESSION['documento'];
+      $consulta=mysqli_query($conexion,"SELECT * FROM calculadora WHERE numero_identificacion LIKE '%$dato%';") or die ($conexion."Error en la consulta");
+      $cantidad = mysqli_num_rows($consulta);
+      if($cantidad > 0){
+      while($fila=mysqli_fetch_array($consulta)){
+      }
+    }else{
+        if(isset($_POST['btn_generar'])){
+            echo "<script>window.location='dashboard.php?mod=calculadora#generar';</script>";
+          }
+        ?>
+        <center>
+        <form action="dashboard.php?mod=calculadora" method="POST">
+          <button type="submit" name="btn_generar" class="btn_generar">Generar calculo</button>
+        </form>
+        </center>
+        <?php
     }
+}
+?>
+<?php
+if(isset($_POST['btn_generar'])){
+?>
+<style>
+    .table{
+        font-size: 12px;
+    }
+    .thead{
+        background-color:#BFEBC5;
+    }
+    .btn_consulta{
+        background-color:#ffffff;
+        padding: 10px 20px;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .btn_consulta:hover{
+        transform: scale(1.1);
+    }
+    .receta{
+      background-color:#BFEBC5 ;
+      height: 200px;
+      margin: 4%;
+      border-radius: 10px;
+    }
+    .recetas{
+      background-color:white ;
+      border-radius: 10px;
+    }
+    
+</style>
+<center>
+<div class="col-md-12" id="generar">
+<form method="post"action="dashboard.php?mod=calculadora#generar">
+  <div class="form-group">
+    <br>
+    <h3>Alimentos</h3>
+    <div class="row">
+      <div class="col-md-10">
+        <input type="text" class="form-control" name="txtconsulta" placeholder="Nombre">
+      </div>
+      <button type="submit" class="btn_consulta col-md-2" name="btn_consulta">Buscar</button>
+    </div>
+  </div>
+</form>
+<div class="recetas col-md-11">
+<div class="row">
+    <?php
+      if (isset($_SESSION['documento'])){
+      if(isset($_POST['btn_consulta'])){  
+      $dato=$_POST["txtconsulta"];
+      $consulta=mysqli_query($conexion,"SELECT * FROM macros WHERE nombre_alimento LIKE '%$dato%';") or die ($conexion."Error en la consulta");
+      $cantidad = mysqli_num_rows($consulta);
+      if($cantidad > 0){
+      while($fila=mysqli_fetch_array($consulta)){
+        ?>
+        <br>
+        <br><br>
+        <div class="receta col-md-2 col-lg-2 col-sm-2 col-xs-2 shadow-md">
+        <div class="nombre_receta">
+          <h6><?php echo $fila['nombre_alimento'];?></h6>
+          
+        </div>
+        <form method="post"action="dashboard.php?mod=info_receta">
+        <input type="text" class="form-control" name="nombre_receta" value="<?php echo $fila['nombre_alimento'];?>" hidden>
+        <button type="submit" class="btn_consulta col-md-2" name="btn_receta"></button>
+        </form>
+        </div>
+        <?php
+      }
+      }
+      }
+      else{
+        $dato='';
+        $consulta=mysqli_query($conexion,"SELECT * FROM macros WHERE nombre_alimento LIKE '%$dato%';") or die ($conexion."Error en la consulta");
+        $cantidad = mysqli_num_rows($consulta);
+        if($cantidad > 0){
+        while($fila=mysqli_fetch_array($consulta)){
+          ?>
+          <br>
+          <br><br>
+          <div class="receta col-md-2 col-lg-2 col-sm-2 col-xs-2 shadow-md">
+          <div class="nombre_receta">
+            <h6><?php echo $fila['nombre_alimento'];?></h6>
+          </div>
+          <form method="post"action="dashboard.php?mod=info_receta">
+          <input type="text" class="form-control" name="nombre_receta" value="<?php echo $fila['nombre_alimento'];?>" hidden>
+          <button type="submit" class="btn_consulta col-md-2" name="btn_receta"></button>
+          </form>
+          </div>
+          <?php
+        }
+      }
+      } 
+      }
+      
     ?>
-</body>
-</html>
+</div>
+</div>
+</div>
+</center>
+<?php
+}
+?>
