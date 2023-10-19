@@ -121,9 +121,11 @@
         ?>
           </tbody>
         </table>
+        <br>
         <form action="dashboard.php?mod=menu_alimentos" method="POST">
-          <button type="submit" name="btn_generar" class="btn_generar">Generar calculo</button>
+          <button type="submit" name="btn_generar" class="btn_consulta">Generar calculo</button>
         </form>
+        <br><br>
         </center>
         </div>
         </div>
