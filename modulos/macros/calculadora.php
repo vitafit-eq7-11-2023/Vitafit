@@ -64,7 +64,7 @@
         if(isset($_POST['btn_eliminar'])){
             $id_calculo=$_POST['id_calculo'];
             $elimiar=mysqli_query($conexion, "DELETE FROM `calculadora` WHERE `calculadora`.`id_calculo` = '$id_calculo'");
-            echo "usuario eliminado con exito";
+            echo "Calculo eliminado con exito";
         }
         $dato=$_SESSION['documento'];
         $consulta=mysqli_query($conexion,"SELECT * FROM calculadora WHERE numero_identificacion LIKE '%$dato%';") or die ($conexion."Error en la consulta");
