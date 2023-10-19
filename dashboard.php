@@ -110,7 +110,7 @@ session_start();
   </aside>
  
   <!-- Final dashboard -->
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+  <main class="main-content position-relative border-radius-lg ">
     <!-- Encabezado -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
       <div class="container-fluid py-1 px-3">
@@ -248,7 +248,7 @@ session_start();
     </nav>
     <!-- Final encabezado -->
     <!-- Espacio div principal -->
-    <div class="container-fluid py-4" style=" background-color: #BFEBC5;">
+    <div class="container-fluid py-4 shadow border-radius-md" style=" background-color: #BFEBC5;">
       <?php
         if(@ $_GET['mod']=="")
         {
@@ -292,7 +292,7 @@ session_start();
                                     else
                                         if(@ $_GET['mod']=="calculadora")
                                         {
-                                          require_once("modulos/calculadora.php");
+                                          require_once("modulos/macros/calculadora.php");
                                         }
                                         else
                                             if(@ $_GET['mod']=="usuarios")
@@ -312,8 +312,14 @@ session_start();
                                                   else
                                                     if(@ $_GET['mod']=="selector_rutina")
                                                     {
-                                                     require_once("modulos/rutinas/selector_rutina.php");
+                                                      require_once("modulos/rutinas/selector_rutina.php");
                                                     }
+                                                    else
+                                                      if(@ $_GET['mod']=="menu_alimentos")
+                                                      {
+                                                        require_once("modulos/macros/menu_alimentos.php");
+                                                      }
+
 
             
       ?>

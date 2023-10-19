@@ -1,46 +1,4 @@
 <style>
-    .btn_generar{
-        background-color:#ffffff;
-        padding: 10px 20px;
-        color: black;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-    .btn_generar:hover{
-        transform: scale(1.1);
-    }
-</style>
-
-<?php
-      include "conexion.php";
-      if (isset($_SESSION['documento'])){
-      $dato=$_SESSION['documento'];
-      $consulta=mysqli_query($conexion,"SELECT * FROM calculadora WHERE numero_identificacion LIKE '%$dato%';") or die ($conexion."Error en la consulta");
-      $cantidad = mysqli_num_rows($consulta);
-      if($cantidad > 0){
-      while($fila=mysqli_fetch_array($consulta)){
-      }
-    }else{
-        if(isset($_POST['btn_generar'])){
-            echo "<script>window.location='dashboard.php?mod=calculadora#generar';</script>";
-          }
-        ?>
-        <center>
-        <form action="dashboard.php?mod=calculadora" method="POST">
-          <button type="submit" name="btn_generar" class="btn_generar">Generar calculo</button>
-        </form>
-        </center>
-        <?php
-    }
-}
-?>
-<?php
-if(isset($_POST['btn_generar'])){
-?>
-<style>
     .table{
         font-size: 12px;
     }
@@ -62,7 +20,7 @@ if(isset($_POST['btn_generar'])){
     }
     .receta{
       background-color:#BFEBC5 ;
-      height: 200px;
+      height: 130px;
       margin: 4%;
       border-radius: 10px;
     }
@@ -74,7 +32,7 @@ if(isset($_POST['btn_generar'])){
 </style>
 <center>
 <div class="col-md-12" id="generar">
-<form method="post"action="dashboard.php?mod=calculadora#generar">
+<form method="post"action="dashboard.php?mod=menu_alimentos">
   <div class="form-group">
     <br>
     <h3>Alimentos</h3>
@@ -89,6 +47,7 @@ if(isset($_POST['btn_generar'])){
 <div class="recetas col-md-11">
 <div class="row">
     <?php
+      include "conexion.php";
       if (isset($_SESSION['documento'])){
       if(isset($_POST['btn_consulta'])){  
       $dato=$_POST["txtconsulta"];
@@ -99,14 +58,15 @@ if(isset($_POST['btn_generar'])){
         ?>
         <br>
         <br><br>
-        <div class="receta col-md-2 col-lg-2 col-sm-2 col-xs-2 shadow-md">
+        <div class="receta col-md-3 col-lg-3 col-sm-3 col-xs-3 shadow-md">
         <div class="nombre_receta">
           <h6><?php echo $fila['nombre_alimento'];?></h6>
           
         </div>
-        <form method="post"action="dashboard.php?mod=info_receta">
-        <input type="text" class="form-control" name="nombre_receta" value="<?php echo $fila['nombre_alimento'];?>" hidden>
-        <button type="submit" class="btn_consulta col-md-2" name="btn_receta"></button>
+        <form method="post"action="codigo_agregar_calculo.php">
+            <input type="text" class="form-control" name="id_alimento" value="<?php echo $fila['id_alimentos'];?>" hidden>
+            <input type="text" class="form-control" name="cantidad_alimento" placeholder="Cantidad en gramos(g)"required>
+            <button type="submit" class="btn_consulta col-md-2" name="btn_calculo"></button>
         </form>
         </div>
         <?php
@@ -122,13 +82,14 @@ if(isset($_POST['btn_generar'])){
           ?>
           <br>
           <br><br>
-          <div class="receta col-md-2 col-lg-2 col-sm-2 col-xs-2 shadow-md">
+          <div class="receta col-md-3 col-lg-3 col-sm-3 col-xs-3 shadow-md">
           <div class="nombre_receta">
             <h6><?php echo $fila['nombre_alimento'];?></h6>
           </div>
-          <form method="post"action="dashboard.php?mod=info_receta">
-          <input type="text" class="form-control" name="nombre_receta" value="<?php echo $fila['nombre_alimento'];?>" hidden>
-          <button type="submit" class="btn_consulta col-md-2" name="btn_receta"></button>
+          <form method="post"action="codigo_agregar_calculo.php">
+            <input type="text" class="form-control" name="id_alimento" value="<?php echo $fila['id_alimentos'];?>" hidden>
+            <input type="text" class="form-control" name="cantidad_alimento" placeholder="Cantidad en gramos(g)"required>
+            <button type="submit" class="btn_consulta col-md-2" name="btn_calculo"></button>
           </form>
           </div>
           <?php
@@ -142,6 +103,3 @@ if(isset($_POST['btn_generar'])){
 </div>
 </div>
 </center>
-<?php
-}
-?>

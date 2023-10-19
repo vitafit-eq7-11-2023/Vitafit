@@ -36,7 +36,7 @@
 </div>
 <button type="submit" class="btn_consulta" name="btn_consulta">Consultar</button>
 <br><br>
-</forms>
+</form>
 <table class="table">
 <thead class="thead">
 <tr>

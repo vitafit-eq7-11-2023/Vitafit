@@ -143,6 +143,9 @@
                             <input type="password" class="form-control" placeholder="Confirmar contraseña" name="contra_confirm" required>
                             </div>
                         </div>
+                        <div class="form-group">
+                          <input type="text" name="t_rol" value="1"hidden>
+                        </div>
                         <br>
                         <button type="submit" class="btn_registrar" name="btn_registrar">Registrar</button>
                         <br><br>
