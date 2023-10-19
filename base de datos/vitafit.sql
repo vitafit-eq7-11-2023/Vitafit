@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2023 a las 21:48:10
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 7.4.27
+-- Tiempo de generación: 19-10-2023 a las 03:54:11
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `calculadora` (
-  `id_calculo` int(3) NOT NULL,
+  `id_calculo` int(1) NOT NULL,
   `id_alimento` int(12) NOT NULL,
+  `cantidad` int(4) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -44,7 +45,7 @@ CREATE TABLE `calendario` (
   `fecha` date NOT NULL,
   `descripcion` varchar(400) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -57,7 +58,7 @@ CREATE TABLE `ejercicio` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(1000) NOT NULL,
   `video` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `ejercicio`
@@ -104,14 +105,14 @@ INSERT INTO `ejercicio` (`id_ejercicio`, `nombre`, `descripcion`, `video`) VALUE
 --
 
 CREATE TABLE `macros` (
-  `id_alimentos` int(2) NOT NULL,
+  `id_alimentos` int(1) NOT NULL,
   `proteina` float NOT NULL,
   `grasas` float NOT NULL,
   `carbohidratos` float NOT NULL,
   `calorias` float NOT NULL,
   `fibra` float NOT NULL,
   `nombre_alimento` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `macros`
@@ -191,7 +192,7 @@ CREATE TABLE `plan_alimenticio` (
   `id_receta` int(15) NOT NULL,
   `descripcion` varchar(400) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,7 @@ CREATE TABLE `receta` (
   `video` blob NOT NULL,
   `ingredientes` varchar(1000) NOT NULL,
   `imagen` mediumblob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `receta`
@@ -265,7 +266,7 @@ CREATE TABLE `rol` (
   `id_rol` int(1) NOT NULL,
   `nombre` varchar(15) NOT NULL,
   `descripcion` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `rol`
@@ -286,7 +287,7 @@ CREATE TABLE `rutina` (
   `id_ejercicio` int(3) NOT NULL,
   `descripcion` varchar(400) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -309,7 +310,7 @@ CREATE TABLE `usuario` (
   `sexo` text NOT NULL,
   `contraseña` varchar(100) NOT NULL,
   `id_rol` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -395,7 +396,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `calculadora`
 --
 ALTER TABLE `calculadora`
-  MODIFY `id_calculo` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_calculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `calendario`
@@ -413,7 +414,7 @@ ALTER TABLE `ejercicio`
 -- AUTO_INCREMENT de la tabla `macros`
 --
 ALTER TABLE `macros`
-  MODIFY `id_alimentos` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_alimentos` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT de la tabla `plan_alimenticio`
@@ -447,7 +448,8 @@ ALTER TABLE `rutina`
 -- Filtros para la tabla `calculadora`
 --
 ALTER TABLE `calculadora`
-  ADD CONSTRAINT `calculadora_ibfk_1` FOREIGN KEY (`id_alimento`) REFERENCES `macros` (`id_alimentos`);
+  ADD CONSTRAINT `calculadora_ibfk_1` FOREIGN KEY (`id_alimento`) REFERENCES `macros` (`id_alimentos`),
+  ADD CONSTRAINT `calculadora_ibfk_2` FOREIGN KEY (`numero_identificacion`) REFERENCES `usuario` (`numero_identificacion`);
 
 --
 -- Filtros para la tabla `calendario`
