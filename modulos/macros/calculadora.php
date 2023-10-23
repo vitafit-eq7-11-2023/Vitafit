@@ -45,8 +45,10 @@
 <center>
 <div class="col-md-12">
 <h3 class="titulo">Cálculos</h3>
+<p>Ayuda a controlar su ingesta nutricional y a seguir dietas específicas.</p>
 <table class="table">
 <thead class="thead">
+  
 <tr>
 <th scope="col">Nombre del alimento</th>
 <th scope="col">Proteína</th>
@@ -58,6 +60,7 @@
 </tr>
   </thead>
   <tbody>
+    
 <?php
       include "conexion.php";
       if (isset($_SESSION['documento'])){
@@ -112,10 +115,13 @@
               <button type="submit" name="btn_eliminar" style="background-color: transparent; border: 0px;">    
                 <img src="img/boton-eliminar.png" alt="eliminar" width="20">
               </button>
+              
             </form>
           </td>
         </tr>
+        <p></p>
         <?php
+        
       }
       }
         ?>
@@ -126,6 +132,9 @@
           <button type="submit" name="btn_generar" class="btn_consulta">Generar cálculo</button>
         </form>
         <br><br>
+        <h4>Que es un contador de macros?</h4>
+        <p>
+Una contadora de macros es una herramienta o aplicación que ayuda a las personas a seguir y calcular la cantidad de carbohidratos, proteínas y grasas en su dieta diaria, lo que es útil para objetivos nutricionales y de salud.</p>
         </center>
         </div>
         </div>
