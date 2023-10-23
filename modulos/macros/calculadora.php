@@ -44,15 +44,15 @@
 <div class="row">
 <center>
 <div class="col-md-12">
-<h3 class="titulo">Calculos</h3>
+<h3 class="titulo">Cálculos</h3>
 <table class="table">
 <thead class="thead">
 <tr>
 <th scope="col">Nombre del alimento</th>
-<th scope="col">Proteina</th>
+<th scope="col">Proteína</th>
 <th scope="col">Grasas</th>
 <th scope="col">Carbohidratos</th>
-<th scope="col">Calorias</th>
+<th scope="col">Calorías</th>
 <th scope="col">Fribra</th>
 <th scope="col">Cantidad en gramos</th>
 </tr>
@@ -64,7 +64,7 @@
         if(isset($_POST['btn_eliminar'])){
             $id_calculo=$_POST['id_calculo'];
             $elimiar=mysqli_query($conexion, "DELETE FROM `calculadora` WHERE `calculadora`.`id_calculo` = '$id_calculo'");
-            echo "Calculo eliminado con exito";
+            echo "Cálculo eliminado con exito";
         }
         $dato=$_SESSION['documento'];
         $consulta=mysqli_query($conexion,"SELECT * FROM calculadora WHERE numero_identificacion LIKE '%$dato%';") or die ($conexion."Error en la consulta");
@@ -123,7 +123,7 @@
         </table>
         <br>
         <form action="dashboard.php?mod=menu_alimentos" method="POST">
-          <button type="submit" name="btn_generar" class="btn_consulta">Generar calculo</button>
+          <button type="submit" name="btn_generar" class="btn_consulta">Generar cálculo</button>
         </form>
         <br><br>
         </center>

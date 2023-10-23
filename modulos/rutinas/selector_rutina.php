@@ -27,7 +27,7 @@
     <div class="generador1 col-md-5 shadow-lg">
         <br><br>
         <h2>Genera tu rutina</h2>
-        <a href="#">
+        <a href="dashboard.php?mod=rutina_gen">
             <div class="contenedor_boton_generar_rutina col-md-6">
             <box-icon type="regular" name="plus" color="black" size="190px" ></box-icon>
             </div>

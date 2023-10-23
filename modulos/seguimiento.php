@@ -11,12 +11,13 @@
      margin: 0 auto;
    }
  </style>
-   <div class="container mt-5 text-center">
+   <div class="container md-5 text-center">
    <h1>Seguimiento</h1>
+   </div>
    <div id="chart-container">
      <canvas id="myChart"></canvas>
    </div>
- </div>
+
 
 
 

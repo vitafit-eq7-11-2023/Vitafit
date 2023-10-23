@@ -27,10 +27,12 @@ session_start();
 <body class="g-sidenav-show  bg-gray-100">
   <!-- Dashboard -->
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
-    <div class="sidenav-header">
-      <a class="navbar-brand" href="dashboard.php?mod=inicio">
-        <img src="dashboard/media/vitafit_logo.png" alt="main_logo" style="height:3000px;">
+    <div class="">
+      <center>
+      <a href="dashboard.php?mod=inicio">
+        <img src="dashboard/media/vitafit_logo.png" alt="main_logo" style="height:100px; margin-top:10px;">
       </a>
+      </center>
     </div>
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
@@ -319,6 +321,11 @@ session_start();
                                                       {
                                                         require_once("modulos/macros/menu_alimentos.php");
                                                       }
+                                                      else
+                                                        if(@ $_GET['mod']=="rutina_gen")
+                                                        {
+                                                          require_once("modulos/macros/menu_alimentos.php");
+                                                        }
 
 
             
