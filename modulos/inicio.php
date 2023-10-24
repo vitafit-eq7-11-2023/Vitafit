@@ -58,9 +58,11 @@ if ($hora>=12 and $hora<=18)
 <?php
         }
 ?>
+<p>¡Bienvenido a nuestra aplicación de rutinas de ejercicio y plan alimenticio! Estamos emocionados de tenerte a bordo en tu viaje hacia un estilo de vida más saludable y activo. Aquí encontrarás todo lo que necesitas para alcanzar tus metas de bienestar.</p>
 </div>
 <br>
 <h4>Tu proceso</h4>
+
 <div class="container-pre" onclick="window.location.href='dashboard.php?mod=seguimiento'">
 <div class="row ">
 <div class="col-md-4 stat1">

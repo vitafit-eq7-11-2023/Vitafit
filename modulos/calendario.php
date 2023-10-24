@@ -31,6 +31,9 @@ $primer_dia_semana = date("w", mktime(0, 0, 0, $mes_actual, 1, $año_actual));
 
 // Crear la tabla del calendario
 echo "<h2>{$nombres_meses[$mes_actual]} $año_actual</h2>";
+?>
+<p>Aquí, podrás agendar y gestionar tus recordatorios de una manera sencilla y eficiente.</p>
+<?php
 echo "<table border='1'>";
 echo "<tr>";
 foreach ($dias_semana as $dia) {
@@ -110,7 +113,7 @@ echo "</table>";
     }
 
     td:hover {
-        background-color: #f;
+        background-color: #fff;
     }
 
     tr:nth-child(even) td {

@@ -36,6 +36,7 @@
   <div class="form-group">
     <br>
     <h3>Recetas</h3>
+    <p>¿te antojaste de algo que no esta en tu dieta?¡No te preocupes!Tenemos un monton de recetas saludables las cuales podras preparar  </p>
     <div class="row">
       <div class="col-md-10">
         <input type="text" class="form-control" name="txtconsulta" placeholder="Nombre">
