@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2023 a las 19:10:27
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 24-10-2023 a las 19:36:48
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `calculadora` (
   `id_alimento` int(12) NOT NULL,
   `cantidad` int(4) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `calculadora`
@@ -56,7 +56,7 @@ CREATE TABLE `calendario` (
   `fecha` date NOT NULL,
   `descripcion` varchar(400) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,7 @@ CREATE TABLE `ejercicio` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(1000) NOT NULL,
   `video` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `ejercicio`
@@ -123,7 +123,7 @@ CREATE TABLE `macros` (
   `calorias` float NOT NULL,
   `fibra` float NOT NULL,
   `nombre_alimento` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `macros`
@@ -190,7 +190,11 @@ INSERT INTO `macros` (`id_alimentos`, `proteina`, `grasas`, `carbohidratos`, `ca
 (62, 19, 6, 61, 364, 17, 'Garbanzos'),
 (63, 2, 0.1, 17, 77, 2.2, 'Papas cocidas'),
 (64, 11, 8, 60, 335, 9, 'Avena'),
-(65, 3.4, 1, 5, 42, 0, 'Leche');
+(65, 3.4, 1, 5, 42, 0, 'Leche'),
+(66, 13, 11, 1.1, 155, 0, 'Huevo'),
+(67, 3.4, 15, 41, 312, 3.8, 'Papas fritas'),
+(68, 0.9, 81, 0.1, 717, 0, 'Mantequilla'),
+(69, 5.48, 0, 37.14, 0, 0, 'Arepa ');
 
 -- --------------------------------------------------------
 
@@ -203,7 +207,7 @@ CREATE TABLE `plan_alimenticio` (
   `id_receta` int(15) NOT NULL,
   `descripcion` varchar(400) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -218,7 +222,7 @@ CREATE TABLE `receta` (
   `video` blob NOT NULL,
   `ingredientes` varchar(1000) NOT NULL,
   `imagen` mediumblob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `receta`
@@ -277,7 +281,7 @@ CREATE TABLE `rol` (
   `id_rol` int(1) NOT NULL,
   `nombre` varchar(15) NOT NULL,
   `descripcion` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `rol`
@@ -298,7 +302,7 @@ CREATE TABLE `rutina` (
   `id_ejercicio` int(3) NOT NULL,
   `descripcion` varchar(400) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -311,7 +315,7 @@ CREATE TABLE `seguimiento` (
   `rutina_realizada` int(3) NOT NULL,
   `dieta_cumplida` int(3) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `seguimiento`
@@ -341,7 +345,7 @@ CREATE TABLE `usuario` (
   `sexo` text NOT NULL,
   `contraseña` varchar(100) NOT NULL,
   `id_rol` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -454,7 +458,7 @@ ALTER TABLE `ejercicio`
 -- AUTO_INCREMENT de la tabla `macros`
 --
 ALTER TABLE `macros`
-  MODIFY `id_alimentos` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_alimentos` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de la tabla `plan_alimenticio`
