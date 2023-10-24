@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2023 a las 03:54:11
+-- Tiempo de generación: 24-10-2023 a las 19:10:27
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -33,6 +33,17 @@ CREATE TABLE `calculadora` (
   `cantidad` int(4) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `calculadora`
+--
+
+INSERT INTO `calculadora` (`id_calculo`, `id_alimento`, `cantidad`, `numero_identificacion`) VALUES
+(21, 52, 500, 1025647369),
+(50, 2, 0, 1011397031),
+(51, 18, 200, 1011397031),
+(52, 3, 300, 123456789),
+(53, 2, 10, 1011397031);
 
 -- --------------------------------------------------------
 
@@ -292,6 +303,26 @@ CREATE TABLE `rutina` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `seguimiento`
+--
+
+CREATE TABLE `seguimiento` (
+  `peso_inicial` int(3) NOT NULL,
+  `rutina_realizada` int(3) NOT NULL,
+  `dieta_cumplida` int(3) NOT NULL,
+  `numero_identificacion` bigint(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `seguimiento`
+--
+
+INSERT INTO `seguimiento` (`peso_inicial`, `rutina_realizada`, `dieta_cumplida`, `numero_identificacion`) VALUES
+(60, 0, 0, 123456789);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -318,8 +349,11 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`correo`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `celular`, `tipo_documento`, `numero_identificacion`, `edad`, `estatura`, `peso`, `sexo`, `contraseña`, `id_rol`) VALUES
 ('santaivndio@gmail.com', 'marisol', '', 'mejia', '', 3103474440, 'TI', 42090940, 57, 160, 60, 'M', '', 1),
-('benitez@gmail.com', 'Juan', 'José', 'Benitez', 'Lopera', 3006906760, 'TI', 1011397031, 16, 175, 65, 'M', '2614ba8e9cd194b7aacea8bc4c1f2373', 2),
-('wifijs30@gmail.com', 'ivan', 'dario', 'santa', 'mejia', 3045353311, 'TI', 1020410474, 17, 175, 68, 'M', 'e657b927752e1432c80919fd764dd373', 2);
+('tal@gmail.com', 'aa', 'a', 'a', 'a', 231231231, 'TI', 123456789, 15, 170, 100, 'F', '2614ba8e9cd194b7aacea8bc4c1f2373', 1),
+('benitez@gmail.com', 'Juan', 'José', 'Benitez', 'Lopera', 3006906760, 'TI', 1011397031, 16, 175, 70, 'M', '2614ba8e9cd194b7aacea8bc4c1f2373', 2),
+('wifijs30@gmail.com', 'ivan', 'dario', 'santa', 'mejia', 3045353311, 'TI', 1020410474, 17, 175, 68, 'M', 'e657b927752e1432c80919fd764dd373', 2),
+('juaneldemoledor1@gmail.com', 'juan', 'juan', 'AVSCO', 'SZS', 3044464845, 'CC', 1025647369, 100, 165, 65, 'F', 'aa76d780cb2603587f0f3383308d5297', 1),
+('samirahmedmazloum@gmail.com', 'Samir ahmed ', 'Jr', 'mazloum ', 'mosquera', 3025863336, 'TI', 1031940801, 16, 178, 77, 'M', '9e2db025075a5ca7a1c5f884e59dc058', 1);
 
 --
 -- Índices para tablas volcadas
@@ -381,6 +415,12 @@ ALTER TABLE `rutina`
   ADD KEY `numero_identificacion` (`numero_identificacion`);
 
 --
+-- Indices de la tabla `seguimiento`
+--
+ALTER TABLE `seguimiento`
+  ADD KEY `numero_identificacin` (`numero_identificacion`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -396,7 +436,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `calculadora`
 --
 ALTER TABLE `calculadora`
-  MODIFY `id_calculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_calculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `calendario`
@@ -470,6 +510,12 @@ ALTER TABLE `plan_alimenticio`
 ALTER TABLE `rutina`
   ADD CONSTRAINT `rutina_ibfk_1` FOREIGN KEY (`id_ejercicio`) REFERENCES `ejercicio` (`id_ejercicio`),
   ADD CONSTRAINT `rutina_ibfk_2` FOREIGN KEY (`numero_identificacion`) REFERENCES `usuario` (`numero_identificacion`);
+
+--
+-- Filtros para la tabla `seguimiento`
+--
+ALTER TABLE `seguimiento`
+  ADD CONSTRAINT `seguimiento_ibfk_1` FOREIGN KEY (`numero_identificacion`) REFERENCES `usuario` (`numero_identificacion`);
 
 --
 -- Filtros para la tabla `usuario`

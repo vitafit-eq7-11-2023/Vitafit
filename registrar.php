@@ -86,10 +86,10 @@
                             <input type="text" class="form-control" placeholder="Edad" name="edad" required>
                             </div>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Peso en kg" name="peso">
+                            <input type="text" class="form-control" placeholder="Peso en kg" name="peso" required>
                             </div>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Altura en cm" name="altura">
+                            <input type="text" class="form-control" placeholder="Altura en cm" name="altura" required>
                             </div>
                         </div>
                         <br>
