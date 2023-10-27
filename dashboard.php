@@ -274,7 +274,7 @@ session_start();
                     else
                         if(@ $_GET['mod']=="p_alimenticio")
                         {
-                          require_once("modulos/p_alimenticio.php");
+                          require_once("modulos/plan/p_alimenticio.php");
                         }
                         else
                             if(@ $_GET['mod']=="seguimiento")
@@ -326,6 +326,11 @@ session_start();
                                                         {
                                                           require_once("modulos/macros/menu_alimentos.php");
                                                         }
+                                                        else
+                                                          if(@ $_GET['mod']=="form_palimenticio")
+                                                          {
+                                                            require_once("modulos/plan/form_palimenticio.php");
+                                                          }
 
 
             

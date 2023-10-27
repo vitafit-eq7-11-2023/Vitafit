@@ -133,8 +133,7 @@
         </form>
         <br><br>
         <h4>Que es un contador de macros?</h4>
-        <p>
-Una contadora de macros es una herramienta o aplicación que ayuda a las personas a seguir y calcular la cantidad de carbohidratos, proteínas y grasas en su dieta diaria, lo que es útil para objetivos nutricionales y de salud.</p>
+        <p>Una contadora de macros es una herramienta o aplicación que ayuda a las personas a seguir y calcular la cantidad de carbohidratos, proteínas y grasas en su dieta diaria, lo que es útil para objetivos nutricionales y de salud.</p>
         </center>
         </div>
         </div>

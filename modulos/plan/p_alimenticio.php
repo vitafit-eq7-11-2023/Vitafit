@@ -12,11 +12,6 @@
         user-select: none;
       }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
 
       .b-example-divider {
         width: 100%;
@@ -103,8 +98,9 @@
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold" style="color: black;">Platos principales</h1>
         <p class="col-md-8 fs-4" style="color: black;">Qué tal si para empezar hacemos un desayuno balanceado con bastantes calorías para tener energía a través de todo el día y para aumentar esos kilos que deseas.</p>
+        <a href="dashboard.php?mod=form_palimenticio">
         <button class="btn btn-primary btn-lg" type="button">¡Vamos!</button>
-
+        </a>
       </div>
     </div>
 
@@ -116,6 +112,7 @@
           <button class="btn btn-outline-light" type="button">¡Vamos!</button>
         </div>
       </div>
+
       <div class="col-md-6" id="snack">
         <div class="h-100 p-5 bg-clear-tertiary text-dark rounded-3">
           <h2 class="fw-bold">Snacks</h2>
