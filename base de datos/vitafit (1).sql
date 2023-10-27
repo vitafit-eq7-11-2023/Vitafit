@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2023 a las 19:36:48
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.2
+-- Tiempo de generación: 27-10-2023 a las 05:24:02
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `calculadora` (
   `id_alimento` int(12) NOT NULL,
   `cantidad` int(4) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `calculadora`
@@ -40,10 +40,11 @@ CREATE TABLE `calculadora` (
 
 INSERT INTO `calculadora` (`id_calculo`, `id_alimento`, `cantidad`, `numero_identificacion`) VALUES
 (21, 52, 500, 1025647369),
-(50, 2, 0, 1011397031),
-(51, 18, 200, 1011397031),
 (52, 3, 300, 123456789),
-(53, 2, 10, 1011397031);
+(55, 2, 400, 1011397031),
+(56, 14, 100, 1011397031),
+(57, 69, 200, 1011397031),
+(58, 6, 100, 1011397031);
 
 -- --------------------------------------------------------
 
@@ -56,7 +57,7 @@ CREATE TABLE `calendario` (
   `fecha` date NOT NULL,
   `descripcion` varchar(400) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -69,7 +70,7 @@ CREATE TABLE `ejercicio` (
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(1000) NOT NULL,
   `video` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `ejercicio`
@@ -112,6 +113,17 @@ INSERT INTO `ejercicio` (`id_ejercicio`, `nombre`, `descripcion`, `video`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `lista_plan`
+--
+
+CREATE TABLE `lista_plan` (
+  `id_plan` int(1) NOT NULL,
+  `id_receta` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `macros`
 --
 
@@ -123,7 +135,7 @@ CREATE TABLE `macros` (
   `calorias` float NOT NULL,
   `fibra` float NOT NULL,
   `nombre_alimento` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `macros`
@@ -204,10 +216,8 @@ INSERT INTO `macros` (`id_alimentos`, `proteina`, `grasas`, `carbohidratos`, `ca
 
 CREATE TABLE `plan_alimenticio` (
   `id_plan` int(1) NOT NULL,
-  `id_receta` int(15) NOT NULL,
-  `descripcion` varchar(400) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -216,13 +226,13 @@ CREATE TABLE `plan_alimenticio` (
 --
 
 CREATE TABLE `receta` (
-  `id_receta` int(2) NOT NULL,
+  `id_receta` int(1) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(15000) NOT NULL,
   `video` blob NOT NULL,
   `ingredientes` varchar(1000) NOT NULL,
   `imagen` mediumblob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `receta`
@@ -281,7 +291,7 @@ CREATE TABLE `rol` (
   `id_rol` int(1) NOT NULL,
   `nombre` varchar(15) NOT NULL,
   `descripcion` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `rol`
@@ -302,7 +312,7 @@ CREATE TABLE `rutina` (
   `id_ejercicio` int(3) NOT NULL,
   `descripcion` varchar(400) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -315,7 +325,7 @@ CREATE TABLE `seguimiento` (
   `rutina_realizada` int(3) NOT NULL,
   `dieta_cumplida` int(3) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `seguimiento`
@@ -345,7 +355,7 @@ CREATE TABLE `usuario` (
   `sexo` text NOT NULL,
   `contraseña` varchar(100) NOT NULL,
   `id_rol` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -356,8 +366,7 @@ INSERT INTO `usuario` (`correo`, `primer_nombre`, `segundo_nombre`, `primer_apel
 ('tal@gmail.com', 'aa', 'a', 'a', 'a', 231231231, 'TI', 123456789, 15, 170, 100, 'F', '2614ba8e9cd194b7aacea8bc4c1f2373', 1),
 ('benitez@gmail.com', 'Juan', 'José', 'Benitez', 'Lopera', 3006906760, 'TI', 1011397031, 16, 175, 70, 'M', '2614ba8e9cd194b7aacea8bc4c1f2373', 2),
 ('wifijs30@gmail.com', 'ivan', 'dario', 'santa', 'mejia', 3045353311, 'TI', 1020410474, 17, 175, 68, 'M', 'e657b927752e1432c80919fd764dd373', 2),
-('juaneldemoledor1@gmail.com', 'juan', 'juan', 'AVSCO', 'SZS', 3044464845, 'CC', 1025647369, 100, 165, 65, 'F', 'aa76d780cb2603587f0f3383308d5297', 1),
-('samirahmedmazloum@gmail.com', 'Samir ahmed ', 'Jr', 'mazloum ', 'mosquera', 3025863336, 'TI', 1031940801, 16, 178, 77, 'M', '9e2db025075a5ca7a1c5f884e59dc058', 1);
+('juaneldemoledor1@gmail.com', 'juan', 'juan', 'AVSCO', 'SZS', 3044464845, 'CC', 1025647369, 100, 165, 65, 'F', 'aa76d780cb2603587f0f3383308d5297', 1);
 
 --
 -- Índices para tablas volcadas
@@ -385,6 +394,13 @@ ALTER TABLE `ejercicio`
   ADD PRIMARY KEY (`id_ejercicio`);
 
 --
+-- Indices de la tabla `lista_plan`
+--
+ALTER TABLE `lista_plan`
+  ADD KEY `numero_documento` (`id_plan`),
+  ADD KEY `id_alimento` (`id_receta`);
+
+--
 -- Indices de la tabla `macros`
 --
 ALTER TABLE `macros`
@@ -395,7 +411,6 @@ ALTER TABLE `macros`
 --
 ALTER TABLE `plan_alimenticio`
   ADD PRIMARY KEY (`id_plan`),
-  ADD KEY `id_receta` (`id_receta`),
   ADD KEY `numero_identificacion` (`numero_identificacion`);
 
 --
@@ -440,7 +455,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `calculadora`
 --
 ALTER TABLE `calculadora`
-  MODIFY `id_calculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_calculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de la tabla `calendario`
@@ -470,7 +485,7 @@ ALTER TABLE `plan_alimenticio`
 -- AUTO_INCREMENT de la tabla `receta`
 --
 ALTER TABLE `receta`
-  MODIFY `id_receta` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_receta` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -502,10 +517,16 @@ ALTER TABLE `calendario`
   ADD CONSTRAINT `calendario_ibfk_1` FOREIGN KEY (`numero_identificacion`) REFERENCES `usuario` (`numero_identificacion`);
 
 --
+-- Filtros para la tabla `lista_plan`
+--
+ALTER TABLE `lista_plan`
+  ADD CONSTRAINT `lista_plan_ibfk_1` FOREIGN KEY (`id_plan`) REFERENCES `plan_alimenticio` (`id_plan`),
+  ADD CONSTRAINT `lista_plan_ibfk_2` FOREIGN KEY (`id_receta`) REFERENCES `receta` (`id_receta`);
+
+--
 -- Filtros para la tabla `plan_alimenticio`
 --
 ALTER TABLE `plan_alimenticio`
-  ADD CONSTRAINT `plan_alimenticio_ibfk_1` FOREIGN KEY (`id_receta`) REFERENCES `receta` (`id_receta`),
   ADD CONSTRAINT `plan_alimenticio_ibfk_2` FOREIGN KEY (`numero_identificacion`) REFERENCES `usuario` (`numero_identificacion`);
 
 --
