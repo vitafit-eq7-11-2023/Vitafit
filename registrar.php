@@ -96,10 +96,10 @@
                         <div class="row">
                             <label for="exampleInputEmail1">Ingresar contraseña</label>
                             <div class="col">
-                            <input type="password" class="form-control" placeholder="Contraseña" name="contra" required>
+                            <input type="password" class="form-control" placeholder="Contraseña" name="contra" minlength="8" required>
                             </div>
                             <div class="col">
-                            <input type="password" class="form-control" placeholder="Confirmar contraseña" name="contra_confirm" required>
+                            <input type="password" class="form-control" placeholder="Confirmar contraseña" name="contra_confirm" minlength="8" required>
                             </div>
                         </div>
                         <br>
