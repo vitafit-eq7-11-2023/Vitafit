@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2023 a las 05:24:02
+-- Tiempo de generación: 30-10-2023 a las 05:15:52
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -33,18 +33,6 @@ CREATE TABLE `calculadora` (
   `cantidad` int(4) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `calculadora`
---
-
-INSERT INTO `calculadora` (`id_calculo`, `id_alimento`, `cantidad`, `numero_identificacion`) VALUES
-(21, 52, 500, 1025647369),
-(52, 3, 300, 123456789),
-(55, 2, 400, 1011397031),
-(56, 14, 100, 1011397031),
-(57, 69, 200, 1011397031),
-(58, 6, 100, 1011397031);
 
 -- --------------------------------------------------------
 
@@ -118,8 +106,37 @@ INSERT INTO `ejercicio` (`id_ejercicio`, `nombre`, `descripcion`, `video`) VALUE
 
 CREATE TABLE `lista_plan` (
   `id_plan` int(1) NOT NULL,
-  `id_receta` int(1) NOT NULL
+  `id_receta` int(1) NOT NULL,
+  `dia_consumo` int(1) NOT NULL,
+  `completada` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `lista_plan`
+--
+
+INSERT INTO `lista_plan` (`id_plan`, `id_receta`, `dia_consumo`, `completada`) VALUES
+(6, 16, 1, 1),
+(6, 15, 1, 1),
+(6, 17, 1, 1),
+(6, 20, 2, 1),
+(6, 9, 2, 1),
+(6, 7, 2, 1),
+(6, 9, 3, 1),
+(6, 4, 3, 1),
+(6, 18, 3, 1),
+(6, 12, 4, 1),
+(6, 6, 4, 1),
+(6, 15, 4, 1),
+(6, 4, 5, 1),
+(6, 19, 5, 1),
+(6, 3, 5, 1),
+(6, 2, 6, 1),
+(6, 12, 6, 1),
+(6, 5, 6, 1),
+(6, 9, 7, 1),
+(6, 7, 7, 1),
+(6, 22, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -218,6 +235,13 @@ CREATE TABLE `plan_alimenticio` (
   `id_plan` int(1) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `plan_alimenticio`
+--
+
+INSERT INTO `plan_alimenticio` (`id_plan`, `numero_identificacion`) VALUES
+(6, 1011397031);
 
 -- --------------------------------------------------------
 
@@ -332,7 +356,7 @@ CREATE TABLE `seguimiento` (
 --
 
 INSERT INTO `seguimiento` (`peso_inicial`, `rutina_realizada`, `dieta_cumplida`, `numero_identificacion`) VALUES
-(60, 0, 0, 123456789);
+(65, 0, 0, 1011397031);
 
 -- --------------------------------------------------------
 
@@ -362,11 +386,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`correo`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `celular`, `tipo_documento`, `numero_identificacion`, `edad`, `estatura`, `peso`, `sexo`, `contraseña`, `id_rol`) VALUES
-('santaivndio@gmail.com', 'marisol', '', 'mejia', '', 3103474440, 'TI', 42090940, 57, 160, 60, 'M', '', 1),
-('tal@gmail.com', 'aa', 'a', 'a', 'a', 231231231, 'TI', 123456789, 15, 170, 100, 'F', '2614ba8e9cd194b7aacea8bc4c1f2373', 1),
-('benitez@gmail.com', 'Juan', 'José', 'Benitez', 'Lopera', 3006906760, 'TI', 1011397031, 16, 175, 70, 'M', '2614ba8e9cd194b7aacea8bc4c1f2373', 2),
-('wifijs30@gmail.com', 'ivan', 'dario', 'santa', 'mejia', 3045353311, 'TI', 1020410474, 17, 175, 68, 'M', 'e657b927752e1432c80919fd764dd373', 2),
-('juaneldemoledor1@gmail.com', 'juan', 'juan', 'AVSCO', 'SZS', 3044464845, 'CC', 1025647369, 100, 165, 65, 'F', 'aa76d780cb2603587f0f3383308d5297', 1);
+('santaivndio@gmail.com', 'marisol', 'santa', 'mejia', 'nose', 3103474440, 'CC', 42090940, 45, 160, 60, 'M', '', 1),
+('benitez@gmail.com', 'Juan', 'José', 'Benitez', 'Lopera', 3006906760, 'TI', 1011397031, 16, 175, 67, 'M', '2614ba8e9cd194b7aacea8bc4c1f2373', 2),
+('wifijs30@gmail.com', 'ivan', 'dario', 'santa', 'mejia', 3045353311, 'TI', 1020410474, 17, 175, 68, 'M', 'e657b927752e1432c80919fd764dd373', 2);
 
 --
 -- Índices para tablas volcadas
@@ -455,7 +477,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `calculadora`
 --
 ALTER TABLE `calculadora`
-  MODIFY `id_calculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_calculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT de la tabla `calendario`
@@ -479,7 +501,7 @@ ALTER TABLE `macros`
 -- AUTO_INCREMENT de la tabla `plan_alimenticio`
 --
 ALTER TABLE `plan_alimenticio`
-  MODIFY `id_plan` int(1) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_plan` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `receta`
