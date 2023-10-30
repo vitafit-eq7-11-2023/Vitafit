@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-10-2023 a las 20:48:50
+-- Tiempo de generación: 30-10-2023 a las 21:07:51
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -244,7 +244,11 @@ INSERT INTO `macros` (`id_alimentos`, `proteina`, `grasas`, `carbohidratos`, `ca
 (66, 13, 11, 1.1, 155, 0, 'Huevo'),
 (67, 3.4, 15, 41, 312, 3.8, 'Papas fritas'),
 (68, 0.9, 81, 0.1, 717, 0, 'Mantequilla'),
-(69, 5.48, 0, 37.14, 0, 0, 'Arepa ');
+(69, 8.19, 2.18, 67.87, 330, 6.4, 'Arepa '),
+(70, 22.21, 26.91, 4.71, 350, 0, 'Queso'),
+(71, 7.64, 3.29, 50.61, 266, 2.4, 'Pan'),
+(72, 0, 0, 0, 0, 0, 'Agua'),
+(73, 7.65, 29.66, 59.4, 535, 3.4, 'Dulce de chocolate');
 
 -- --------------------------------------------------------
 
@@ -529,7 +533,7 @@ ALTER TABLE `ejercicio`
 -- AUTO_INCREMENT de la tabla `macros`
 --
 ALTER TABLE `macros`
-  MODIFY `id_alimentos` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id_alimentos` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT de la tabla `plan_alimenticio`
