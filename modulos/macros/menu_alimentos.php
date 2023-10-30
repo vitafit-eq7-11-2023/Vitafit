@@ -7,7 +7,8 @@
     }
     .btn_consulta{
         background-color:#ffffff;
-        padding: 10px 20px;
+        margin-top: 5px;
+        padding:5px 5px;
         color: black;
         border: none;
         border-radius: 5px;
@@ -66,7 +67,7 @@
         <form method="post"action="codigo_agregar_calculo.php">
             <input type="text" class="form-control" name="id_alimento" value="<?php echo $fila['id_alimentos'];?>" hidden>
             <input type="text" class="form-control" name="cantidad_alimento" placeholder="Cantidad en gramos(g)"required>
-            <button type="submit" class="btn_consulta col-md-2" name="btn_calculo"></button>
+            <button type="submit" class="btn_consulta" name="btn_calculo">Realizar</button>
         </form>
         </div>
         <?php
@@ -89,7 +90,7 @@
           <form method="post"action="codigo_agregar_calculo.php">
             <input type="text" class="form-control" name="id_alimento" value="<?php echo $fila['id_alimentos'];?>" hidden>
             <input type="text" class="form-control" name="cantidad_alimento" placeholder="Cantidad en gramos(g)"required>
-            <button type="submit" class="btn_consulta col-md-2" name="btn_calculo"></button>
+            <button type="submit" class="btn_consulta" name="btn_calculo">Realizar</button>
           </form>
           </div>
           <?php

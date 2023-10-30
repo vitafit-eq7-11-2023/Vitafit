@@ -1,6 +1,7 @@
 <?php
 //Iniciamos session
 session_start();
+include "conexion.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -331,9 +332,11 @@ session_start();
                                                           {
                                                             require_once("modulos/plan/form_palimenticio.php");
                                                           }
-
-
-            
+                                                          else
+                                                            if(@ $_GET['mod']=="palimenticio_pro")
+                                                            {
+                                                              require_once("modulos/plan/palimenticio_pro.php");
+                                                            }
       ?>
       <footer class="footer pt-3  ">
         <div class="container-fluid">

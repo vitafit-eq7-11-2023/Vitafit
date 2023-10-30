@@ -76,7 +76,7 @@
         background-image: url(modulos/img/Breakfast.jpg);
         background-repeat: no-repeat;
         background-size: 100%;
-        filter: brightness(0.6);
+        filter: brightness(0.7);
         position: relative;
       }
 
@@ -98,7 +98,22 @@
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold" style="color: black;">Platos principales</h1>
         <p class="col-md-8 fs-4" style="color: black;">Qué tal si para empezar hacemos un desayuno balanceado con bastantes calorías para tener energía a través de todo el día y para aumentar esos kilos que deseas.</p>
-        <a href="dashboard.php?mod=form_palimenticio">
+        <a 
+        <?php
+        $documento=$_SESSION['documento'];
+        $consulta = mysqli_query($conexion,"SELECT * FROM plan_alimenticio WHERE numero_identificacion LIKE '%$documento%';") or die ($conexion."Error en la consulta");
+        if($fila=mysqli_fetch_array($consulta)){
+          $numero_plan=$fila['id_plan'];
+          $consulta_lista = mysqli_query($conexion,"SELECT * FROM lista_plan WHERE id_plan LIKE '%$numero_plan%';") or die ($conexion."Error en la consulta");
+          $cantidad = mysqli_num_rows($consulta_lista);
+          if($cantidad > 0){
+            echo "href='dashboard.php?mod=palimenticio_pro'";
+          }else{
+            echo "href='dashboard.php?mod=form_palimenticio'";
+          }
+        }
+        ?>
+        >
         <button class="btn btn-primary btn-lg" type="button">¡Vamos!</button>
         </a>
       </div>

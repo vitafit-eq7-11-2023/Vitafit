@@ -17,7 +17,8 @@ if (isset($_POST["btn_registrar"])){
     $contra = $_POST['contra'];
     $encrip = md5($contra);
     $registrar = mysqli_query($conexion, "INSERT INTO `usuario` (`correo`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `celular`, `tipo_documento`, `numero_identificacion`, `edad`, `estatura`, `peso`, `sexo`, `contraseña`, `id_rol`) VALUES ('$correo', '$name1', '$name2', '$ape1', '$ape2', '$tel', '$tipo_doc', '$doc', '$age', '$altura', '$peso', '$sex', '$encrip', '$tipo_rol')") or die($conexion);
-    $registrar_seguimiento = mysqli_query($conexion,"INSERT INTO `seguimiento` (`peso_inicial`, `rutina_realizada`, `dieta_cumplida`, `numero_identificacin`) VALUES ('$peso', '0', '0', '$doc')");
+    $registrar_seguimiento = mysqli_query($conexion,"INSERT INTO `seguimiento` (`peso_inicial`, `rutina_realizada`, `dieta_cumplida`, `numero_identificacion`) VALUES ('$peso', '0', '0', '$doc')") or die($conexion);
+    $registrar_plan = mysqli_query($conexion,"INSERT INTO `plan_alimenticio` (`id_plan`, `numero_identificacion`) VALUES ('', '$doc')") or die($conexion);
     echo "<script>alert('Registro exitoso');</script>";
     echo "<script>window.location='index.php' ;</script>";
 }

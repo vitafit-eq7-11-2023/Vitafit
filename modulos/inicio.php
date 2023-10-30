@@ -84,14 +84,20 @@ if ($hora>=12 and $hora<=18)
 
 <div class="row" style="justify-content: space-between;">
 <div class="col-md-3 container-info-1">
+    <div>
+        <h3>Rutinas</h3>
+    </div>
 </div>
     
-<div class="col-md-4 container-info-2">
+<div class="col-md- container-info-2">
 <div>
-    <h3>omaga</h3>
+    <h3>Calendario</h3>
 </div>
 </div>
 <div class="col-md-3 container-info-3">
+    <div>
+        <h3>Plan alimenticio</h3>
+    </div>
 </div>
 </div>
 </div>

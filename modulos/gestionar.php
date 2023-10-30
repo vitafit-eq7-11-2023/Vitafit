@@ -8,6 +8,7 @@
     .btn_consulta{
         background-color:#BFEBC5;
         padding: 10px 20px;
+        margin: 10px;
         color: black;
         border: none;
         border-radius: 5px;
@@ -55,11 +56,35 @@
         if(isset($_POST['btn_eliminar'])){
 
           $documento=$_POST['documento'];
-          $elimiar=mysqli_query($conexion, "DELETE FROM `usuario` WHERE `usuario`.`numero_identificacion` = '$documento'");
+          $consulta = mysqli_query($conexion,"SELECT * FROM plan_alimenticio WHERE numero_identificacion = '$documento';") or die ($conexion."Error en la consulta");
+          if($fila=mysqli_fetch_array($consulta)){
+            $numero_plan=$fila['id_plan'];
+            $elimiar_lista=mysqli_query($conexion, "DELETE FROM `lista_plan` WHERE `lista_plan`.`id_plan` = '$numero_plan'");
+          }
+          $elimiar_plan=mysqli_query($conexion, "DELETE FROM `plan_alimenticio` WHERE `plan_alimenticio`.`numero_identificacion` = '$documento'");
+          $elimiar_plan=mysqli_query($conexion, "DELETE FROM `seguimiento` WHERE `seguimiento`.`numero_identificacion` = '$documento'");
+          $elimiar_plan=mysqli_query($conexion, "DELETE FROM `calculadora` WHERE `calculadora`.`numero_identificacion` = '$documento'");
+          $elimiar_usuario=mysqli_query($conexion, "DELETE FROM `usuario` WHERE `usuario`.`numero_identificacion` = '$documento'");
           echo "usuario eliminado con exito";
+          
         }
         if(isset($_POST['btn_editar'])){
           echo "<script>window.location='dashboard.php?mod=gestionar#formulario';</script>";
+        }
+        if(isset($_POST['btn_actualizar'])){
+          $doc_change=$_POST['doc_principal'];
+          $correo=$_POST['correo'];
+          $primer_nombre=$_POST['name1'];
+          $segundo_nombre=$_POST['name2'];
+          $primer_apellido=$_POST['ape1'];
+          $segundo_apellido=$_POST['ape2'];
+          $celular=$_POST['tel'];
+          $edad=$_POST['edad'];
+          $estatura=$_POST['altura'];
+          $peso=$_POST['peso'];
+          $sexo=$_POST['sexo'];
+          $actualizacion=mysqli_query($conexion,"UPDATE `usuario` SET `correo` = '$correo', `primer_nombre` = '$primer_nombre', `segundo_nombre` = '$segundo_nombre', `primer_apellido` = '$primer_apellido', `segundo_apellido` = '$segundo_apellido', `edad` = '$edad', `estatura` = '$estatura', `peso` = '$peso', `sexo` = '$sexo' WHERE `usuario`.`numero_identificacion` = '$doc_change';");
+          echo "usuario actualizado con exito";
         }
       
       if(isset($_POST['btn_consulta'])){  
@@ -86,7 +111,7 @@
       </td>
       <td>
         <form action="dashboard.php?mod=gestionar" method="POST">
-          <input type="text" name="correo" value="<?php echo $fila['correo'];?> "hidden>
+          <input type="text" name="documento" value="<?php echo $fila['numero_identificacion'];?> "hidden>
           <button type="submit" name="btn_editar" style="background-color: transparent; border: 0px;">    
             <img src="img/boton-editar.png" alt="eliminar" width="20">
           </button>
@@ -104,90 +129,73 @@
 </table>
 <?php
 if(isset($_POST['btn_editar'])){
+  $documento=$_POST['documento'];
+  $consulta = mysqli_query($conexion,"SELECT * FROM usuario WHERE numero_identificacion = '$documento';") or die ($conexion."Error en la consulta");
+  if($fila=mysqli_fetch_array($consulta)){
 ?>
-                  <div class="col-md-12" id="formulario">
+                    <div class="col-md-12" id="formulario">
                     <h3>Modificar usuario</h3>
-                  </div>
-                  <form action="codigo_agregar.php" method="post">
+                    </div>
+                    <form action="dashboard.php?mod=gestionar" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="doc_principal"  value="<?php echo $documento;?>" hidden>
+                        </div>
                     <img src="img/vitafit_logo.png" alt="vitafit_logo" width="300">
                       <br><br>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Ingrese correo</label>
-                            <input type="email" class="form-control" aria-describedby="emailHelp" id="exampleFormControlInput1" placeholder="name@example.com" name="correo">
-                            <small id="emailHelp" class="form-text text-muted">No compartas tu correo con nadie</small>
+                            <input type="email" class="form-control" aria-describedby="emailHelp" id="exampleFormControlInput1" placeholder="name@example.com" name="correo"  value="<?php echo $fila['correo'];?>"required>
                         </div>
-                        <br>
                         <div class="row">
                             <label for="exampleInputEmail1">Ingrese nombres</label>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="primer nombre" name="name1">
+                            <input type="text" class="form-control" placeholder="primer nombre" name="name1" value="<?php echo $fila['primer_nombre'];?>"required>
                             </div>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="segundo nombre" name="name2">
+                            <input type="text" class="form-control" placeholder="segundo nombre" name="name2" value="<?php echo $fila['segundo_nombre'];?>">
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <label for="exampleInputEmail1">ingrese apellidos</label>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="primer apellido" name="ape1">
+                            <input type="text" class="form-control" placeholder="primer apellido" name="ape1" value="<?php echo $fila['primer_apellido'];?>" required>
                             </div>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="segundo apellido" name="ape2">
+                            <input type="text" class="form-control" placeholder="segundo apellido" name="ape2" value="<?php echo $fila['segundo_apellido'];?>">
                             </div>
                         </div>
                         <br>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Ingrese su celular</label>
-                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="celular" name="tel">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                          <label for="exampleFormControlSelect1">Tipo de documento</label>
-                          <select class="form-control" id="exampleFormControlSelect1" name="t_doc">
-                            <option>Seleccione</option>
-                            <option value="TI">Tarjeta de identidad</option>
-                            <option value="CC">Cedula cuidadana</option>
-                            <option value="RC">Registro civil</option>
-                            <option value="CE">cedula de estranjeria</option>
-                          </select>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Ingrese numero de documento</label>
-                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="Documento" name="doc">
+                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="celular" name="tel" value="<?php echo $fila['celular'];?>">
                         </div>
                         <br>
                         <div class="row">
                             <label for="exampleInputEmail1">Datos personales</label>
                             <div class="col">
-                            <select class="form-control" id="exampleFormControlSelect1" name="sexo">
+                            <select class="form-control" id="exampleFormControlSelect1" name="sexo" reqired>
                             <option>Sexo</option>
                             <option value="F">Femenino</option>
                             <option value="M">Masculino</option>
                             </select>
                             </div>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Edad" name="edad">
+                            <input type="text" class="form-control" placeholder="Edad" name="edad" value="<?php echo $fila['edad'];?>" required>
                             </div>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Peso en kg" name="peso">
+                            <input type="text" class="form-control" placeholder="Peso en kg" name="peso" value="<?php echo $fila['peso'];?>"required>
                             </div>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Altura en cm" name="altura">
+                            <input type="text" class="form-control" placeholder="Altura en cm" name="altura" value="<?php echo $fila['estatura'];?>" required>
                             </div>
                         </div>
                         <br>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Ingrese la contraseña</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="contraseña" name="contra">
-                        </div>
-                        <br>
-                        <button type="submit" class="btn_registrar" name="btn_registrar">Cambiar</button>
-                        <br><br>
+                        <button type="submit" class="btn_consulta" name="btn_actualizar">Actualizar</button>
                     </form>
     <?php
       }
+    }
     ?>
 </div>
 </center>
