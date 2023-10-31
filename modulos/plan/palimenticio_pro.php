@@ -72,7 +72,12 @@
 </div>
 <br>
 <?php
-     if(isset($_POST["btn_dias"])){
+      if(isset($_POST['btn_completado'])){
+        $id_plan=$_POST['id_plan'];
+        $dia=$_POST['dia'];
+        $actualizacion=mysqli_query($conexion,"UPDATE `lista_plan` SET `completada` = '2' WHERE id_plan = '$id_plan' AND dia_consumo = '$dia';");
+      }    
+      if(isset($_POST["btn_dias"])){
         $dia=$_POST['dia'];
         $documento=$_SESSION['documento'];
         $consulta = mysqli_query($conexion,"SELECT * FROM plan_alimenticio WHERE numero_identificacion LIKE '%$documento%';") or die ($conexion."Error en la consulta");
@@ -87,6 +92,7 @@
             <?php
             while($fila=mysqli_fetch_array($consulta_lista)){
                 $receta=$fila['id_receta'];
+                $cumplida=$fila['completada'];
                 $consulta=mysqli_query($conexion,"SELECT * FROM receta WHERE id_receta = '$receta';") or die ($conexion."Error en la consulta");
                 while($fila=mysqli_fetch_array($consulta)){
                   ?>
@@ -98,7 +104,11 @@
                   </div>
                   <div>
                     <p><?php
-                    if($fila[''])
+                    if($cumplida==2){
+                      echo "Realizada";
+                    }else{
+                      echo"";
+                    }
                     ?></p>
                   </div>
                   <form method="post"action="dashboard.php?mod=info_receta">
@@ -124,7 +134,7 @@
         $consulta = mysqli_query($conexion,"SELECT * FROM plan_alimenticio WHERE numero_identificacion LIKE '%$documento%';") or die ($conexion."Error en la consulta");
         if($fila=mysqli_fetch_array($consulta)){
           $numero_plan=$fila['id_plan'];
-          $consulta_lista = mysqli_query($conexion,"SELECT * FROM lista_plan WHERE id_plan = '$numero_plan' AND completada = '1' AND dia_consumo = '1';") or die ($conexion."Error en la consulta");
+          $consulta_lista = mysqli_query($conexion,"SELECT * FROM lista_plan WHERE id_plan = '$numero_plan' AND dia_consumo = '1';") or die ($conexion."Error en la consulta");
           $cantidad = mysqli_num_rows($consulta_lista);
           if($cantidad > 0){
             ?>
