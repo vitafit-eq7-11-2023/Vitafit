@@ -323,9 +323,9 @@ include "conexion.php";
                                                         require_once("modulos/macros/menu_alimentos.php");
                                                       }
                                                       else
-                                                        if(@ $_GET['mod']=="rutina_gen")
+                                                        if(@ $_GET['mod']=="rutina_pro")
                                                         {
-                                                          require_once("modulos/macros/menu_alimentos.php");
+                                                          require_once("modulos/rutinas/rutina_pro.php");
                                                         }
                                                         else
                                                           if(@ $_GET['mod']=="form_palimenticio")
@@ -337,6 +337,11 @@ include "conexion.php";
                                                             {
                                                               require_once("modulos/plan/palimenticio_pro.php");
                                                             }
+                                                            else
+                                                              if(@ $_GET['mod']=="info_ejercicio")
+                                                              {
+                                                                require_once("modulos/rutinas/info_ejercicio.php");
+                                                              }
       ?>
       <footer class="footer pt-3  ">
         <div class="container-fluid">

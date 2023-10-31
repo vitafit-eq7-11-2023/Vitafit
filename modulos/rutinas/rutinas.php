@@ -101,8 +101,24 @@
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold" style="color:#FFFFFF;">Tu rutina</h1>
         <p class="col-md-8 fs-4" style="color:#FFFFFF;">¡Hace un buen dia para hacer ejercicio ¿verdad?!</p>
-        <a href="dashboard.php?mod=selector_rutina"><button class="btn btn-primary btn-lg" type="button">¡Vamos!</button></a>
-
+        <a 
+        <?php
+        $documento=$_SESSION['documento'];
+        $consulta = mysqli_query($conexion,"SELECT * FROM rutina WHERE numero_identificacion LIKE '%$documento%';") or die ($conexion."Error en la consulta");
+        if($fila=mysqli_fetch_array($consulta)){
+          $numero_rutina=$fila['id_rutina'];
+          $consulta_lista = mysqli_query($conexion,"SELECT * FROM lista_rutina WHERE id_rutina LIKE '%$numero_rutina%';") or die ($conexion."Error en la consulta");
+          $cantidad = mysqli_num_rows($consulta_lista);
+          if($cantidad > 0){
+            echo "href='dashboard.php?mod=rutina_pro'";
+          }else{
+            echo "href='dashboard.php?mod=selector_rutina'";
+          }
+        }
+        ?>
+        >
+        <button class="btn btn-primary btn-lg" type="button">¡Vamos!</button>
+        </a>
       </div>
     </div>
 

@@ -61,9 +61,15 @@
             $numero_plan=$fila['id_plan'];
             $elimiar_lista=mysqli_query($conexion, "DELETE FROM `lista_plan` WHERE `lista_plan`.`id_plan` = '$numero_plan'");
           }
+          $consulta = mysqli_query($conexion,"SELECT * FROM rutina WHERE numero_identificacion = '$documento';") or die ($conexion."Error en la consulta");
+          if($fila=mysqli_fetch_array($consulta)){
+            $numero_rutina=$fila['id_rutina'];
+            $elimiar_lista=mysqli_query($conexion, "DELETE FROM `lista_rutina` WHERE `lista_rutina`.`id_rutina` = '$numero_plan'");
+          }
           $elimiar_plan=mysqli_query($conexion, "DELETE FROM `plan_alimenticio` WHERE `plan_alimenticio`.`numero_identificacion` = '$documento'");
-          $elimiar_plan=mysqli_query($conexion, "DELETE FROM `seguimiento` WHERE `seguimiento`.`numero_identificacion` = '$documento'");
-          $elimiar_plan=mysqli_query($conexion, "DELETE FROM `calculadora` WHERE `calculadora`.`numero_identificacion` = '$documento'");
+          $elimiar_rutinas=mysqli_query($conexion, "DELETE FROM `rutina` WHERE `rutina`.`numero_identificacion` = '$documento'");
+          $elimiar_seguimineto=mysqli_query($conexion, "DELETE FROM `seguimiento` WHERE `seguimiento`.`numero_identificacion` = '$documento'");
+          $elimiar_calculos=mysqli_query($conexion, "DELETE FROM `calculadora` WHERE `calculadora`.`numero_identificacion` = '$documento'");
           $elimiar_usuario=mysqli_query($conexion, "DELETE FROM `usuario` WHERE `usuario`.`numero_identificacion` = '$documento'");
           echo "usuario eliminado con exito";
           
