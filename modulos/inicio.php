@@ -65,15 +65,11 @@ if ($hora>=12 and $hora<=18)
 
 <div class="container-pre" onclick="window.location.href='dashboard.php?mod=seguimiento'">
 <div class="row ">
-<div class="col-md-4 stat1">
-	<canvas id="grafica-pastel"></canvas>
+<div class="col-md-6">
+	<canvas id="grafica" class="col-md-12 tin"></canvas>
 </div>
-<div class="col-md-4 stat2">
-	<canvas id="grafica-barras1"></canvas>
-    <canvas id="grafica-barras2"></canvas>
-</div>
-<div class="col-md-4 stat3">
-	<canvas id="grafica-araña"></canvas>
+<div class="col-md-6">
+  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, pulvinar justo egestas odio eget nibh, aliquam vitae mus curae vivamus vel. Hendrerit diam dictumst massa rutrum mollis fames potenti semper class eu phasellus accumsan lobortis, sagittis lacinia fusce suscipit justo lectus imperdiet odio cubilia praesent eros. Nunc mattis accumsan curabitur curae elementum ultrices.</p>
 </div>
 </div>
 </div>
@@ -89,7 +85,7 @@ if ($hora>=12 and $hora<=18)
     </div>
 </div>
     
-<div class="col-md- container-info-2">
+<div class="col-md-3 container-info-2">
 <div>
     <h3>Calendario</h3>
 </div>
@@ -102,79 +98,61 @@ if ($hora>=12 and $hora<=18)
 </div>
 </div>
 </div>
-
-
-<script>
-const label = ['Enero', 'Febrero', 'Marzo', 'Abril']
-const colors = ['rgb(69,177,223)', 'rgb(99,201,122)', 'rgb(203,82,82)', 'rgb(229,224,88)'];
-
-const pastel = document.querySelector("#grafica-pastel");
-const barras1 = document.querySelector("#grafica-barras1");
-const barras2 = document.querySelector("#grafica-barras2");
-const araña = document.querySelector("#grafica-araña");
-
-const data_pastel = {
-    datasets: [{
-        data: [1, 2, 3, 4],
-        backgroundColor: colors
-    }]
+<?php
+include "conexion.php";
+if(isset($_POST["btn_peso"])){
+$documento = $_SESSION["documento"];
+$peso = $_POST["txtpeso"];
+$actualizacion=mysqli_query($conexion, "UPDATE `usuario` SET `peso` = '$peso' WHERE `numero_identificacion` = $documento;");
+$_SESSION['peso']= $peso;
+}
+?>
+ <script src="script.js"></script>
+ <script>
+const $grafica = document.querySelector("#grafica");
+// Las etiquetas son las que van en el eje X. 
+const etiquetas = [""]
+// Podemos tener varios conjuntos de datos
+const datosVentas2020 = {
+    label: "Peso inicial",
+    data: [<?php 
+    $documento = $_SESSION['documento'];
+    $consulta_seguimiento = mysqli_query($conexion,"SELECT * FROM seguimiento WHERE numero_identificacion LIKE '%$documento%';");
+    while($fila=mysqli_fetch_array($consulta_seguimiento)){
+      $peso_inicial = $fila['peso_inicial'];
+      echo $peso_inicial;
+    }
+    ?>], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo
+    borderColor: 'rgba(54, 162, 235, 1)', // Color del borde
+    borderWidth: 1,// Ancho del borde
+};
+const datosVentas2021 = {
+    label: "Peso actual",
+    data: [<?php echo $_SESSION['peso']; ?>], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    backgroundColor: 'rgba(255, 159, 64, 0.2)',// Color de fondo
+    borderColor: 'rgba(255, 159, 64, 1)',// Color del borde
+    borderWidth: 1,// Ancho del borde
 };
 
-const confi_pastel = {
-    type: 'pie',
-    data: data_pastel,
-};
-
-const data_barras1 = {
-    labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
-    datasets:[{
-        label: "Peso",
-        data: [1, 2, 3, 4],
-        backgroundColor: colors
-    }]
-};
-const confi_barras1 = {
-    type: 'bar',
-    data: data_barras1,
-};
-const data_barras2 = {
-    labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
-    datasets:[{
-        label: "Entrenamientos",
-        data: [1, 2, 3, 4],
-        backgroundColor: colors
-    }]
-};
-const confi_barras2 = {
-    type: 'bar',
-    data: data_barras2,
-};
-const dataset1 = {
-    label: "Tus estadísticas.",
-    data: [50, 20, 40, 60, 80, 100],
-    borderColor: 'rgba(248, 37, 37, 0.8)',
-    backgroundColor: 'rgba(255,0,0,0.29)'
-};
-
-const dataset2 = {
-    label: "Usuario promedio.",
-    data: [80, 90, 40, 50, 70, 90],
-    borderColor: 'rgba(69,200,248,0.8)',
-    backgroundColor: 'rgba(0,255,234,0.31)'
-};
-
-const data_araña = {
-    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
-    datasets: [dataset1,dataset2]
-};
-
-const confi_araña = {
-    type: 'radar',
-    data: data_araña,
-};
-
-new Chart(pastel, confi_pastel);
-new Chart(barras1, confi_barras1);
-new Chart(barras2, confi_barras2);
-new Chart(araña, confi_araña);
-</script>
+new Chart($grafica, {
+    type: 'bar',// Tipo de gráfica
+    data: {
+        labels: etiquetas,
+        datasets: [
+            datosVentas2020,
+            datosVentas2021,
+            // Aquí más datos...
+        ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }],
+        },
+    }
+});
+ </script>
