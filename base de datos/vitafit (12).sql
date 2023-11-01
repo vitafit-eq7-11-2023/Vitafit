@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2023 a las 17:33:53
+-- Tiempo de generación: 02-11-2023 a las 00:15:00
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -33,6 +33,14 @@ CREATE TABLE `calculadora` (
   `cantidad` int(4) NOT NULL,
   `numero_identificacion` bigint(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `calculadora`
+--
+
+INSERT INTO `calculadora` (`id_calculo`, `id_alimento`, `cantidad`, `numero_identificacion`) VALUES
+(67, 6, 150, 1011397031),
+(68, 20, 170, 1011397031);
 
 -- --------------------------------------------------------
 
@@ -116,27 +124,27 @@ CREATE TABLE `lista_plan` (
 --
 
 INSERT INTO `lista_plan` (`id_plan`, `id_receta`, `dia_consumo`, `completada`) VALUES
-(8, 17, 1, 1),
-(8, 17, 1, 1),
-(8, 9, 1, 1),
-(8, 21, 2, 1),
-(8, 13, 2, 1),
-(8, 14, 2, 1),
-(8, 9, 3, 1),
+(8, 18, 1, 1),
+(8, 12, 1, 1),
+(8, 8, 1, 1),
+(8, 1, 2, 1),
+(8, 22, 2, 1),
+(8, 4, 2, 1),
+(8, 15, 3, 1),
 (8, 21, 3, 1),
-(8, 2, 3, 1),
-(8, 3, 4, 1),
-(8, 8, 4, 1),
-(8, 12, 4, 1),
-(8, 9, 5, 1),
-(8, 8, 5, 1),
-(8, 13, 5, 1),
-(8, 13, 6, 1),
+(8, 18, 3, 1),
+(8, 13, 4, 1),
+(8, 9, 4, 1),
+(8, 17, 4, 1),
+(8, 1, 5, 1),
+(8, 19, 5, 1),
+(8, 5, 5, 1),
+(8, 17, 6, 1),
+(8, 15, 6, 1),
 (8, 2, 6, 1),
-(8, 11, 6, 1),
-(8, 14, 7, 1),
-(8, 8, 7, 1),
-(8, 7, 7, 1);
+(8, 15, 7, 1),
+(8, 2, 7, 1),
+(8, 12, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -150,54 +158,6 @@ CREATE TABLE `lista_rutina` (
   `dia_cumplimiento` int(1) NOT NULL,
   `completada` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `lista_rutina`
---
-
-INSERT INTO `lista_rutina` (`id_rutina`, `id_ejercicio`, `dia_cumplimiento`, `completada`) VALUES
-(1, 6, 1, 1),
-(1, 16, 1, 1),
-(1, 8, 1, 1),
-(1, 24, 1, 1),
-(1, 13, 1, 1),
-(1, 12, 1, 1),
-(1, 18, 2, 1),
-(1, 20, 2, 1),
-(1, 17, 2, 1),
-(1, 4, 2, 1),
-(1, 9, 2, 1),
-(1, 4, 2, 1),
-(1, 20, 3, 1),
-(1, 13, 3, 1),
-(1, 1, 3, 1),
-(1, 22, 3, 1),
-(1, 29, 3, 1),
-(1, 28, 3, 1),
-(1, 23, 4, 1),
-(1, 2, 4, 1),
-(1, 32, 4, 1),
-(1, 8, 4, 1),
-(1, 28, 4, 1),
-(1, 15, 4, 1),
-(1, 30, 5, 1),
-(1, 14, 5, 1),
-(1, 31, 5, 1),
-(1, 15, 5, 1),
-(1, 24, 5, 1),
-(1, 21, 5, 1),
-(1, 29, 6, 1),
-(1, 2, 6, 1),
-(1, 13, 6, 1),
-(1, 6, 6, 1),
-(1, 29, 6, 1),
-(1, 25, 6, 1),
-(1, 23, 7, 1),
-(1, 27, 7, 1),
-(1, 16, 7, 1),
-(1, 8, 7, 1),
-(1, 17, 7, 1),
-(1, 21, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -453,7 +413,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`correo`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `celular`, `tipo_documento`, `numero_identificacion`, `edad`, `estatura`, `peso`, `sexo`, `contraseña`, `id_rol`) VALUES
 ('danna@gmail.com', 'danna', 'santa', 'mejia', 'nose', 3103474440, 'CC', 42090940, 16, 160, 55, 'F', '', 1),
-('benitez@gmail.com', 'Juan', 'José', 'Benitez', 'Lopera', 3006906760, 'TI', 1011397031, 16, 175, 67, 'M', '2614ba8e9cd194b7aacea8bc4c1f2373', 1),
+('benitez@gmail.com', 'Juan', 'José', 'Benitez', 'Lopera', 3006906760, 'TI', 1011397031, 16, 175, 60, 'M', '2614ba8e9cd194b7aacea8bc4c1f2373', 2),
 ('wifijs30@gmail.com', 'ivan', 'dario', 'santa', 'mejia', 3045353311, 'TI', 1020410474, 17, 175, 68, 'M', 'e657b927752e1432c80919fd764dd373', 2);
 
 --
@@ -549,7 +509,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `calculadora`
 --
 ALTER TABLE `calculadora`
-  MODIFY `id_calculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id_calculo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT de la tabla `calendario`
