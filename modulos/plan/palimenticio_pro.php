@@ -112,14 +112,34 @@
       }  
       if(isset($_POST['btn_reiniciar'])){
         $id_plan=$_POST['id_plan'];
-        $actualizacion=mysqli_query($conexion,"UPDATE `lista_plan` SET `completada` = '1' WHERE id_plan = '$id_plan';");
-        
+        $consulta_dieta = mysqli_query($conexion,"SELECT * FROM lista_plan WHERE id_plan = '$id_plan' AND completada = '2' ;") or die ($conexion."Error en la consulta");
+        $cantidad_completadas=mysqli_num_rows($consulta_dieta);
+        if($cantidad_completadas==21){
+          $actualizacion=mysqli_query($conexion,"UPDATE `lista_plan` SET `completada` = '1' WHERE id_plan = '$id_plan';");
+          echo "<script>alert('Tu plan alimenticio se reinicio');</script>";
+        }else{
+          echo "<script>alert('Tienes que completar todos los dias para reiniciar tu plan');</script>";
+        }
       }  
       if(isset($_POST['btn_completado'])){
         $id_plan=$_POST['id_plan'];
         $dia=$_POST['dia'];
-        $actualizacion=mysqli_query($conexion,"UPDATE `lista_plan` SET `completada` = '2' WHERE id_plan = '$id_plan' AND dia_consumo = '$dia';");
-      }    
+        $documento=$_SESSION['documento'];
+        $consulta_dieta = mysqli_query($conexion,"SELECT * FROM lista_plan WHERE dia_consumo = '$dia';") or die ($conexion."Error en la consulta");
+        if($fila=mysqli_fetch_array($consulta_dieta)){
+          $completada=$fila['completada'];
+          if($completada==1){
+          $actualizacion=mysqli_query($conexion,"UPDATE `lista_plan` SET `completada` = '2' WHERE id_plan = '$id_plan' AND dia_consumo = '$dia';");
+          $consulta = mysqli_query($conexion,"SELECT * FROM seguimiento WHERE numero_identificacion = '$documento';") or die ($conexion."Error en la consulta");
+          if($fila=mysqli_fetch_array($consulta)){
+            $numero_dieta=$fila['dieta_cumplida']+1;
+            $seguimiento=mysqli_query($conexion,"UPDATE `seguimiento` SET `dieta_cumplida` = '$numero_dieta' WHERE numero_identificacion = '$documento';");
+          }
+        }else{
+          echo "<script>alert('Este dia ya se completo con anterioridad');</script>";
+        } 
+        }    
+        }    
       if(isset($_POST["btn_dias"])){
         $dia=$_POST['dia'];
         $documento=$_SESSION['documento'];

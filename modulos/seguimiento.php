@@ -3,9 +3,6 @@
    body {
      background-color: #BFEBC5;
    }
-
-
-  
    #chart-container {
      max-width: 600px;
      margin: 0 auto;
@@ -25,42 +22,71 @@
         transform: scale(1.1);
     }
  </style>
-   <div class="container md-5 text-center">
-   <h1>Seguimiento</h1>
-   <br><br>
-   <h3>Peso</h3>
-   </div>
+
+<div class="container md-5 text-center">
+  <h1>Seguimiento</h1>
+  <br><br>
+  <h3>Peso</h3>
+</div>
+
 <div class="contenedor_peso">
-<div class="row">
-<div class="grafica_peso col-md-6 text-center">
-<h4>Grafica</h4>
-<div >
-  <canvas id="grafica"></canvas>
-</div>
-</div>
-<div class="resumen_peso col-md-6 text-center">
-<h4>Resumen</h4>
-<p>Lorem ipsum dolor sit amet consectetur adipiscing elit, pulvinar justo egestas odio eget nibh, aliquam vitae mus curae vivamus vel. Hendrerit diam dictumst massa rutrum mollis fames potenti semper class eu phasellus accumsan lobortis, sagittis lacinia fusce suscipit justo lectus imperdiet odio cubilia praesent eros. Nunc mattis accumsan curabitur curae elementum ultrices.</p>
-</div>
-</div>
-<div class="contenedor_peso_actu row">
-<form action="dashboard.php?mod=seguimiento" method="POST">
-<div class="form-group">
-<div class="row">
-<div class="col-md-2">
-<input type="text" class="form-control" name="txtpeso" placeholder="Nuevo peso" required></input>
-</div>
-<button type="submit" name="btn_peso" class="btn_peso col-md-2">Actualizar</button>
-</div>
-</form>
-</div>
-</div>
+  <div class="row">
+    <div class="grafica_peso col-md-6 text-center">
+      <h4>Grafica</h4>
+      <div>
+        <canvas id="grafica"></canvas>
+      </div>
+    </div>
+    <div class="resumen_peso col-md-6 text-center">
+      <h4>Resumen</h4>
+      <p class="p-1">"No importa cuán desafiante parezca tu camino, cada día que te esfuerzas por alcanzar tu objetivo es un paso en la dirección correcta. A veces, los desafíos son parte del viaje, y lo más importante es que sigues adelante con determinación. Tu dedicación y persistencia son dignas de admiración. Recuerda que tu salud y bienestar son una prioridad, y estás trabajando para lograr tus metas de manera responsable. ¡Sigue esforzándote y ten en cuenta que tu éxito llegará en su momento! Estamos aquí para apoyarte en este viaje hacia una versión más saludable y feliz de ti mismo/a. ¡Tú puedes hacerlo!" 💪🌟</p>
+    </div>
+  </div>
+  <div class="contenedor_peso_actu text-center">
+    <form action="dashboard.php?mod=seguimiento" method="POST">
+      <h4 class="center">Actualiza tu peso</h4>
+      <br>
+      <div class="row" style="justify-content: center;">
+        <div class="col-md-2">
+          <input type="text" class="form-control" name="txtpeso" placeholder="Nuevo peso" required></input>
+        </div>
+        <button type="submit" name="btn_peso" class="btn_peso col-md-2">Actualizar</button>
+      </div>
+    </form>
+  </div>
 </div>
 <div class="contenedor_informacion">
   <br><br>
   <h3 class="text-center">Dias completados con exito</h3>
-<div class="grafica_peso col-md-6 text-center">
-</div>
+  <br>
+  <div class="row">
+    <div class="grafica_peso col-md-6 text-center">
+      <h4>Plan alimenticio</h4>
+      <h3>
+      <?php
+        $documento = $_SESSION["documento"];
+        $consulta_seguimiento = mysqli_query($conexion,"SELECT * FROM seguimiento WHERE numero_identificacion = '$documento';");
+        if($fila=mysqli_fetch_array($consulta_seguimiento)){
+          $dias_plan=$fila['dieta_cumplida'];
+          echo $dias_plan;
+        }
+      ?>
+      </h3>
+    </div>
+    <div class="resumen_peso col-md-6 text-center">
+      <h4>Rutina de ejercicios</h4>
+        <h3>
+        <?php
+          $documento = $_SESSION["documento"];
+          $consulta_seguimiento = mysqli_query($conexion,"SELECT * FROM seguimiento WHERE numero_identificacion = '$documento';");
+          if($fila=mysqli_fetch_array($consulta_seguimiento)){
+            $dias_rutina=$fila['rutina_realizada'];
+            echo $dias_rutina;
+          }
+        ?>
+        </h3>
+    </div>
+  </div>
 </div>
 <?php
 include "conexion.php";

@@ -112,13 +112,33 @@
       }  
       if(isset($_POST['btn_reiniciar'])){
         $id_rutina=$_POST['id_rutina'];
-        $actualizacion=mysqli_query($conexion,"UPDATE `lista_rutina` SET `completada` = '1' WHERE id_rutina = '$id_rutina';");
-        
+        $consulta_rutina = mysqli_query($conexion,"SELECT * FROM lista_rutina WHERE id_rutina = '$id_rutina' AND completada = '2' ;") or die ($conexion."Error en la consulta");
+        $cantidad_completadas=mysqli_num_rows($consulta_rutina);
+        if($cantidad_completadas==42){
+          $actualizacion=mysqli_query($conexion,"UPDATE `lista_rutina` SET `completada` = '1' WHERE id_rutina = '$id_rutina';");
+          echo "<script>alert('Tu rutina se reinicio');</script>";
+        }else{
+          echo "<script>alert('Tienes que completar todos los dias para reiniciar tu rutina');</script>";
+        }
       }  
       if(isset($_POST['btn_completado'])){
         $id_rutina=$_POST['id_rutina'];
         $dia=$_POST['dia'];
-        $actualizacion=mysqli_query($conexion,"UPDATE `lista_rutina` SET `completada` = '2' WHERE id_rutina = '$id_rutina' AND dia_cumplimiento = '$dia';");
+        $documento=$_SESSION['documento'];
+        $consulta_rutina = mysqli_query($conexion,"SELECT * FROM lista_rutina WHERE dia_cumplimiento = '$dia';") or die ($conexion."Error en la consulta");
+        if($fila=mysqli_fetch_array($consulta_rutina)){
+          $completada=$fila['completada'];
+          if($completada==1){
+          $actualizacion=mysqli_query($conexion,"UPDATE `lista_rutina` SET `completada` = '2' WHERE id_rutina = '$id_rutina' AND dia_cumplimiento = '$dia';");
+          $consulta = mysqli_query($conexion,"SELECT * FROM seguimiento WHERE numero_identificacion = '$documento';") or die ($conexion."Error en la consulta");
+          if($fila=mysqli_fetch_array($consulta)){
+            $numero_rutina=$fila['rutina_realizada']+1;
+            $seguimiento=mysqli_query($conexion,"UPDATE `seguimiento` SET `rutina_realizada` = '$numero_rutina' WHERE numero_identificacion = '$documento';");
+          }
+        }else{
+          echo "<script>alert('Este dia ya se completo con anterioridad');</script>";
+        } 
+        }  
       }    
       if(isset($_POST["btn_dias"])){
         $dia=$_POST['dia'];

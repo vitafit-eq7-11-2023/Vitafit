@@ -65,7 +65,7 @@
         </div>
         <form method="post"action="dashboard.php?mod=info_receta">
         <input type="text" class="form-control" name="nombre_receta" value="<?php echo $fila['nombre'];?>" hidden>
-        <button type="submit" class="btn_consulta col-md-2" name="btn_receta">Preparar</button>
+        <button type="submit" class="btn_consulta" name="btn_receta">Preparar</button>
         </form>
         </div>
         <?php

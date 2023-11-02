@@ -1,7 +1,6 @@
 <style>
 
     .container-pre{
-        height: 310px;
         background-color: #ffffff;
         border-radius: 15px;
     }
@@ -66,10 +65,10 @@ if ($hora>=12 and $hora<=18)
 <div class="container-pre" onclick="window.location.href='dashboard.php?mod=seguimiento'">
 <div class="row ">
 <div class="col-md-6">
-	<canvas id="grafica" class="col-md-12 tin"></canvas>
+	<canvas id="grafica" style="margin:10px;"></canvas>
 </div>
 <div class="col-md-6">
-  <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, pulvinar justo egestas odio eget nibh, aliquam vitae mus curae vivamus vel. Hendrerit diam dictumst massa rutrum mollis fames potenti semper class eu phasellus accumsan lobortis, sagittis lacinia fusce suscipit justo lectus imperdiet odio cubilia praesent eros. Nunc mattis accumsan curabitur curae elementum ultrices.</p>
+  <p class="p-1" style="margin:10px;">No importa cuán desafiante parezca tu camino, cada día que te esfuerzas por alcanzar tu objetivo es un paso en la dirección correcta. A veces, los desafíos son parte del viaje, y lo más importante es que sigues adelante con determinación. Tu dedicación y persistencia son dignas de admiración. Recuerda que tu salud y bienestar son una prioridad, y estás trabajando para lograr tus metas de manera responsable. ¡Sigue esforzándote y ten en cuenta que tu éxito llegará en su momento! Estamos aquí para apoyarte en este viaje hacia una versión más saludable y feliz de ti mismo/a. ¡Tú puedes hacerlo! 💪🌟</p>
 </div>
 </div>
 </div>
