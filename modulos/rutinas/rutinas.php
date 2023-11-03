@@ -121,20 +121,3 @@
         </a>
       </div>
     </div>
-
-    <div class="row align-items-md-stretch">
-      <div class="col-md-6" id="postre">
-        <div class="h-100 p-5 text-bg-clear rounded-3">
-          <h2 class="fw-bold">Joga</h2>
-          <p>¿Te apetece estirar un poco?</p>
-          <button class="btn btn-outline-light" type="button">¡Vamos!</button>
-        </div>
-      </div>
-      <div class="col-md-6" id="snack">
-        <div class="h-100 p-5 bg-clear-tertiary text-dark rounded-3">
-          <h2 class="fw-bold">Cardio</h2>
-          <p>¿Y si nos movemos un poco?</p>
-          <button class="btn btn-outline-secondary" type="button">¡Vamos!</button>
-        </div>
-      </div>
-    </div>

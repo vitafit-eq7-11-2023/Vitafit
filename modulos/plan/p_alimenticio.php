@@ -118,21 +118,3 @@
         </a>
       </div>
     </div>
-
-    <div class="row align-items-md-stretch">
-      <div class="col-md-6" id="postre">
-        <div class="h-100 p-5 text-bg-clear rounded-3">
-          <h2 class="fw-bold">Postres</h2>
-          <p>Acá está nuestra selección de postres altos en proteínas y bajos en grasas, para endulzar tu día.</p>
-          <button class="btn btn-outline-light" type="button">¡Vamos!</button>
-        </div>
-      </div>
-
-      <div class="col-md-6" id="snack">
-        <div class="h-100 p-5 bg-clear-tertiary text-dark rounded-3">
-          <h2 class="fw-bold">Snacks</h2>
-          <p>Para cuando no es suficiente y quieres saciar esas ganas, acá hay todo tipo de snacks saludables y caseros.</p>
-          <button class="btn btn-outline-secondary" type="button">¡Vamos!</button>
-        </div>
-      </div>
-    </div>
