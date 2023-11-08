@@ -15,12 +15,36 @@ if (isset($_POST["btn_registrar"])){
     $altura = $_POST['altura'];
     $tipo_rol = $_POST['t_rol'];
     $contra = $_POST['contra'];
+    $contra_con = $_POST['contra_confirm'];
     $encrip = md5($contra);
-    $registrar = mysqli_query($conexion, "INSERT INTO `usuario` (`correo`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `celular`, `tipo_documento`, `numero_identificacion`, `edad`, `estatura`, `peso`, `sexo`, `contraseña`, `id_rol`) VALUES ('$correo', '$name1', '$name2', '$ape1', '$ape2', '$tel', '$tipo_doc', '$doc', '$age', '$altura', '$peso', '$sex', '$encrip', '$tipo_rol')") or die($conexion);
-    $registrar_seguimiento = mysqli_query($conexion,"INSERT INTO `seguimiento` (`peso_inicial`, `rutina_realizada`, `dieta_cumplida`, `numero_identificacion`) VALUES ('$peso', '0', '0', '$doc')") or die($conexion);
-    $registrar_plan = mysqli_query($conexion,"INSERT INTO `plan_alimenticio` (`id_plan`, `numero_identificacion`) VALUES ('', '$doc')") or die($conexion);
-    $registrar_rutina = mysqli_query($conexion,"INSERT INTO `rutina` (`id_rutina`, `numero_identificacion`) VALUES ('', '$doc')") or die($conexion);
-    echo "<script>alert('Registro exitoso');</script>";
-    echo "<script>window.location='index.php' ;</script>";
+    if($contra!=$contra_con){
+        ?>
+        <br>
+        <h4>
+        <?php
+        echo "<script>alert('Las contraseñas no coinciden');</script>";
+        echo "<script>window.location='registrar.php' ;</script>";
+        ?>
+        </h4>
+        <?php
+      }else
+          if($altura > 270 OR $peso > 271 OR $age > 110){
+            ?>
+            <br>
+            <h4>
+            <?php
+            echo "<script>alert('Proporciona datos reales para continuar con el registro');</script>";
+            echo "<script>window.location='registrar.php' ;</script>";
+            ?>
+            </h4>
+            <?php
+          }else{
+            $registrar = mysqli_query($conexion, "INSERT INTO `usuario` (`correo`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `celular`, `tipo_documento`, `numero_identificacion`, `edad`, `estatura`, `peso`, `sexo`, `contraseña`, `id_rol`) VALUES ('$correo', '$name1', '$name2', '$ape1', '$ape2', '$tel', '$tipo_doc', '$doc', '$age', '$altura', '$peso', '$sex', '$encrip', '$tipo_rol')") or die($conexion);
+            $registrar_seguimiento = mysqli_query($conexion,"INSERT INTO `seguimiento` (`peso_inicial`, `rutina_realizada`, `dieta_cumplida`, `numero_identificacion`) VALUES ('$peso', '0', '0', '$doc')") or die($conexion);
+            $registrar_plan = mysqli_query($conexion,"INSERT INTO `plan_alimenticio` (`id_plan`, `numero_identificacion`) VALUES ('', '$doc')") or die($conexion);
+            $registrar_rutina = mysqli_query($conexion,"INSERT INTO `rutina` (`id_rutina`, `numero_identificacion`) VALUES ('', '$doc')") or die($conexion);
+            echo "<script>alert('Registro exitoso');</script>";
+            echo "<script>window.location='index.php' ;</script>";
+          }
 }
 ?>

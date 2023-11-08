@@ -54,7 +54,7 @@
                         <br>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Ingrese su celular</label>
-                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="celular" name="tel">
+                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="celular" name="tel" minlength="10">
                         </div>
                         <br>
                         <div class="row">
@@ -69,7 +69,7 @@
                           </select>
                           </div>
                           <div class="col-8">
-                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="Documento" name="doc" required>
+                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="Documento" name="doc" minlength="8" maxlength="15" required>
                           </div>  
                         </div>
                         <br>
@@ -96,10 +96,10 @@
                         <div class="row">
                             <label for="exampleInputEmail1">Ingresar contraseña</label>
                             <div class="col">
-                            <input type="password" class="form-control" placeholder="Contraseña" name="contra" minlength="8" required>
+                              <input type="password" class="form-control" placeholder="Contraseña" name="contra" minlength="8" minlength="100" required>
                             </div>
                             <div class="col">
-                            <input type="password" class="form-control" placeholder="Confirmar contraseña" name="contra_confirm" minlength="8" required>
+                              <input type="password" class="form-control" placeholder="Confirmar contraseña" name="contra_confirm" minlength="8" minlength="100" required>
                             </div>
                         </div>
                         <br>
@@ -107,13 +107,52 @@
                           <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                           <label class="form-check-label" for="exampleCheck1">Al enviar este formulario aceptas términos y condiciones.</label>
                         </div>
+                        <?php
+                        if(isset($_POST["btn_registrar"])){
+                          $correo = $_POST['correo'];
+                          $name1 = $_POST['name1'];
+                          $name2 = $_POST['name2'];
+                          $ape1 = $_POST['ape1'];
+                          $ape2 = $_POST['ape2'];
+                          $tel = $_POST['tel'];
+                          $tipo_doc = $_POST['t_doc'];
+                          $doc = $_POST['doc'];
+                          $sex = $_POST['sexo'];
+                          $age = $_POST['edad'];
+                          $peso = $_POST['peso'];
+                          $altura = $_POST['altura'];
+                          $tipo_rol = $_POST['t_rol'];
+                          $contra = $_POST['contra'];
+                          $contra_con = $_POST['contra_confirm'];
+                          if($contra!=$contra_con){
+                            ?>
+                            <br>
+                            <h4>
+                            <?php
+                            echo'Las contraseñas no coinciden';
+                            ?>
+                            </h4>
+                            <?php
+                          }else
+                              if($altura > 270 OR $peso > 271 OR $age > 110){
+                                ?>
+                                <br>
+                                <h4>
+                                <?php
+                                echo'Proporciona datos reales para continuar con el registro';
+                                ?>
+                                </h4>
+                                <?php
+                              }
+                        }
+                        ?>
                         <br>
                         <button type="submit" class="btn_registrar" name="btn_registrar">Registrar</button>
                         <br><br>
                         <div class="form-group">
                           <input type="text" name="t_rol" value="1"hidden>
                         </div>
-                        <a href="recuperar.php">Recuperar cuenta. </a> | <a href="index.php"> ¿Ya tienes cuenta? </a>
+                        <a href="recuperar.php">Recuperar cuenta.</a> | <a href="index.php"> ¿Ya tienes cuenta? </a>
                     </form>
                    </div>
                 </div>

@@ -112,10 +112,6 @@ echo "</table>";
         border: 1px solid #ccc;
     }
 
-    td:hover {
-        background-color: #fff;
-    }
-
     tr:nth-child(even) td {
         background-color: #ffff;
     }
