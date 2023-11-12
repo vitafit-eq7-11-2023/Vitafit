@@ -45,7 +45,7 @@
 <center>
 <div class="col-md-12">
 <h3 class="titulo">Cálculos</h3>
-<p>Ayuda a controlar su ingesta nutricional y a seguir dietas específicas.</p>
+<p>Ayuda a controlar tu ingesta nutricional y a seguir dietas específicas.</p>
 <table class="table">
 <thead class="thead">
   
@@ -55,7 +55,7 @@
 <th scope="col">Grasas</th>
 <th scope="col">Carbohidratos</th>
 <th scope="col">Calorías</th>
-<th scope="col">Fribra</th>
+<th scope="col">Fibra</th>
 <th scope="col">Cantidad en gramos</th>
 </tr>
   </thead>
@@ -132,7 +132,7 @@
           <button type="submit" name="btn_generar" class="btn_consulta">Generar cálculo</button>
         </form>
         <br><br>
-        <h4>Que es un contador de macros?</h4>
+        <h4>¿Qué es un contador de macros?</h4>
         <p>Una contadora de macros es una herramienta o aplicación que ayuda a las personas a seguir y calcular la cantidad de carbohidratos, proteínas y grasas en su dieta diaria, lo que es útil para objetivos nutricionales y de salud.</p>
         </center>
         </div>

@@ -32,7 +32,7 @@
 
 <div class="container-main">
 <div class="container-saludo">
-<h1>Bienvenido a Vitafit</h1>
+<h1>Bienvenido a VitaFit</h1>
 <?php
 $hora=date("H");
 

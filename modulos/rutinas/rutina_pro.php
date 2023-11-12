@@ -71,35 +71,35 @@
 </style>
 <center>
 <h1>Tu rutina de ejercicios</h1>
-<p>Recuerda consultar con un especialista los datos que te suministramos </p>
+<p>Recuerda consultar con un especialista los datos que te suministramos.</p>
 <div class="row">
   <form action="dashboard.php?mod=rutina_pro" method="POST" class="col-md-1 form_dias">
     <input type="text" name="dia" value="1" hidden>
-    <button type="submit" class="btn_dias" name="btn_dias">Ver dia 1</button>
+    <button type="submit" class="btn_dias" name="btn_dias">Ver día 1</button>
   </form>
   <form action="dashboard.php?mod=rutina_pro" method="POST" class="col-md-1 form_dias">
     <input type="text" name="dia" value="2" hidden>
-    <button type="submit" class="btn_dias" name="btn_dias">Ver dia 2</button>
+    <button type="submit" class="btn_dias" name="btn_dias">Ver día 2</button>
   </form>  
   <form action="dashboard.php?mod=rutina_pro" method="POST" class="col-md-1 form_dias">
     <input type="text" name="dia" value="3" hidden>
-    <button type="submit" class="btn_dias" name="btn_dias">Ver dia 3</button>
+    <button type="submit" class="btn_dias" name="btn_dias">Ver día 3</button>
   </form>
   <form action="dashboard.php?mod=rutina_pro" method="POST" class="col-md-1 form_dias">
     <input type="text" name="dia" value="4" hidden>
-    <button type="submit" class="btn_dias" name="btn_dias">Ver dia 4</button>
+    <button type="submit" class="btn_dias" name="btn_dias">Ver día 4</button>
   </form>
   <form action="dashboard.php?mod=rutina_pro" method="POST" class="col-md-1 form_dias">
     <input type="text" name="dia" value="5" hidden>
-    <button type="submit" class="btn_dias" name="btn_dias">Ver dia 5</button>
+    <button type="submit" class="btn_dias" name="btn_dias">Ver día 5</button>
   </form>
   <form action="dashboard.php?mod=rutina_pro" method="POST" class="col-md-1 form_dias">
     <input type="text" name="dia" value="6" hidden>
-    <button type="submit" class="btn_dias" name="btn_dias">Ver dia 6</button>
+    <button type="submit" class="btn_dias" name="btn_dias">Ver día 6</button>
   </form>
   <form action="dashboard.php?mod=rutina_pro" method="POST" class="col-md-1 form_dias">
     <input type="text" name="dia" value="7" hidden>
-    <button type="submit" class="btn_dias" name="btn_dias">Ver dia 7</button>
+    <button type="submit" class="btn_dias" name="btn_dias">Ver día 7</button>
   </form>
 </div>
 <br>
@@ -116,9 +116,9 @@
         $cantidad_completadas=mysqli_num_rows($consulta_rutina);
         if($cantidad_completadas==42){
           $actualizacion=mysqli_query($conexion,"UPDATE `lista_rutina` SET `completada` = '1' WHERE id_rutina = '$id_rutina';");
-          echo "<script>alert('Tu rutina se reinicio');</script>";
+          echo "<script>alert('Tu rutina se reinició');</script>";
         }else{
-          echo "<script>alert('Tienes que completar todos los dias para reiniciar tu rutina');</script>";
+          echo "<script>alert('Tienes que completar todos los días para reiniciar tu rutina...');</script>";
         }
       }  
       if(isset($_POST['btn_completado'])){
@@ -136,7 +136,7 @@
             $seguimiento=mysqli_query($conexion,"UPDATE `seguimiento` SET `rutina_realizada` = '$numero_rutina' WHERE numero_identificacion = '$documento';");
           }
         }else{
-          echo "<script>alert('Este dia ya se completo con anterioridad');</script>";
+          echo "<script>alert('Este día ya se completo con anterioridad...');</script>";
         } 
         }  
       }    
@@ -150,7 +150,7 @@
           $cantidad = mysqli_num_rows($consulta_lista);
           if($cantidad > 0){
             ?>
-            <h3><?php echo "Dia ",$dia;?></h3>
+            <h3><?php echo "Día ",$dia;?></h3>
             <div class="row">
             <?php
             while($fila=mysqli_fetch_array($consulta_lista)){
@@ -213,7 +213,7 @@
           $cantidad = mysqli_num_rows($consulta_lista);
           if($cantidad > 0){
             ?>
-            <h3><?php echo "Dia 1";?></h3>
+            <h3><?php echo "Día 1";?></h3>
             <div class="row">
             <?php
             while($fila=mysqli_fetch_array($consulta_lista)){

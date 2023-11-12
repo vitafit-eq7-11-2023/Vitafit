@@ -32,7 +32,7 @@
 <div class="contenedor_peso">
   <div class="row">
     <div class="grafica_peso col-md-6 text-center">
-      <h4>Grafica</h4>
+      <h4>Gráfica</h4>
       <div>
         <canvas id="grafica"></canvas>
       </div>
@@ -57,7 +57,7 @@
 </div>
 <div class="contenedor_informacion">
   <br><br>
-  <h3 class="text-center">Dias completados con exito</h3>
+  <h3 class="text-center">Días completados con éxito</h3>
   <br>
   <div class="row">
     <div class="grafica_peso col-md-6 text-center">

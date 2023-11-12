@@ -1,5 +1,5 @@
 <h1>Rutinas</h1>
-<p>En este espacio te ofrecemos una gran variedad de opciones para mantener tu condicion fisica.</p>
+<p>En este espacio te ofrecemos una gran variedad de opciones para mantener tu condición física.</p>
 
 <div class="p-5 mb-4 bg-body-tertiary rounded-3" id="desayunito">
 <style>
@@ -100,7 +100,7 @@
   
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold" style="color:#FFFFFF;">Tu rutina</h1>
-        <p class="col-md-8 fs-4" style="color:#FFFFFF;">¡Hace un buen dia para hacer ejercicio ¿verdad?!</p>
+        <p class="col-md-8 fs-4" style="color:#FFFFFF;">¡Hace un buen día para hacer ejercicio! ¿verdad?</p>
         <a 
         <?php
         $documento=$_SESSION['documento'];

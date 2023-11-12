@@ -28,7 +28,7 @@
 </style>
 <center>
 <h2>Genera tu plan</h2>
-<h4>¿Cual es tu proposito?</h4>
+<h4>¿Cuál es tu propósito?</h4>
 <div class="formulario_objetivo row">
     <div class="contenedor_objetivos col-md-3">
         <h5>Ganar peso</h5>
@@ -38,7 +38,7 @@
         </form>
     </div>
     <div class="contenedor_objetivos col-md-3">
-        <h5>Recomposicion</h5>
+        <h5>Recomposición</h5>
         <form action="codigo_objetivo_plan.php" method="POST">
             <input class="form-control" type="text" name="objetivo" value="2" hidden>
             <button type="submit" name="btn_objetivo" class="btn_objetivo">¡Vamos!</button>
