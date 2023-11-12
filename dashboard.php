@@ -95,19 +95,13 @@ include "conexion.php";
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="dashboard.php?set=m_profile">
+          <a class="nav-link active" href="dashboard.php?mod=cuenta">
             <div class="icon icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <box-icon type="regular" name="user" color="black" size="22px"></box-icon>
             </div>
             <span class="nav-link-text ms-1"><?php echo $_SESSION['primer_nombre']," ",$_SESSION['primer_apellido']; ?><span>
           </a>
         </li>
-        <?php
-        if(@ $_GET['set']=="m_profile")
-        {
-          require_once("modulos/m_profile.php");
-        }
-        ?>
       </ul>
     </div>
   </aside>

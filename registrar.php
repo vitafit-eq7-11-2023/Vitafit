@@ -107,45 +107,6 @@
                           <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                           <label class="form-check-label" for="exampleCheck1">Al enviar este formulario aceptas términos y condiciones.</label>
                         </div>
-                        <?php
-                        if(isset($_POST["btn_registrar"])){
-                          $correo = $_POST['correo'];
-                          $name1 = $_POST['name1'];
-                          $name2 = $_POST['name2'];
-                          $ape1 = $_POST['ape1'];
-                          $ape2 = $_POST['ape2'];
-                          $tel = $_POST['tel'];
-                          $tipo_doc = $_POST['t_doc'];
-                          $doc = $_POST['doc'];
-                          $sex = $_POST['sexo'];
-                          $age = $_POST['edad'];
-                          $peso = $_POST['peso'];
-                          $altura = $_POST['altura'];
-                          $tipo_rol = $_POST['t_rol'];
-                          $contra = $_POST['contra'];
-                          $contra_con = $_POST['contra_confirm'];
-                          if($contra!=$contra_con){
-                            ?>
-                            <br>
-                            <h4>
-                            <?php
-                            echo'Las contraseñas no coinciden';
-                            ?>
-                            </h4>
-                            <?php
-                          }else
-                              if($altura > 270 OR $peso > 271 OR $age > 110){
-                                ?>
-                                <br>
-                                <h4>
-                                <?php
-                                echo'Proporciona datos reales para continuar con el registro';
-                                ?>
-                                </h4>
-                                <?php
-                              }
-                        }
-                        ?>
                         <br>
                         <button type="submit" class="btn_registrar" name="btn_registrar">Registrar</button>
                         <br><br>

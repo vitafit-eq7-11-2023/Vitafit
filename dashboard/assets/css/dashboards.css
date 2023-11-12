@@ -2726,7 +2726,7 @@ progress {
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #d2d6da;
+  border: 1px solid #BFEBC5;
   appearance: none;
   border-radius: 0.5rem;
   transition: box-shadow 0.15s ease, border-color 0.15s ease;
@@ -2749,9 +2749,9 @@ progress {
 .form-control:focus {
   color: #495057;
   background-color: #fff;
-  border-color: #e293d3;
+  border-color: #BFEBC5;
   outline: 0;
-  box-shadow: 0 0 0 2px #e9aede;
+  box-shadow: 0 0 0 2px #BFEBC5;
 }
 
 .form-control::-webkit-date-and-time-value {
@@ -2764,7 +2764,7 @@ progress {
 }
 
 .form-control:disabled {
-  background-color: #e9ecef;
+  background-color: #BFEBC5;
   opacity: 1;
 }
 
@@ -3314,7 +3314,7 @@ textarea.form-control-lg {
   text-align: center;
   white-space: nowrap;
   background-color: #fff;
-  border: 1px solid #d2d6da;
+  border: 1px solid #BFEBC5;
   border-radius: 0.5rem;
 }
 
@@ -21572,12 +21572,12 @@ fieldset:disabled .btn {
 }
 
 .focused .form-control+.input-group-text {
-  border-color: #e293d3;
-  border-right: 1px solid #e293d3 !important;
+  border-color: #BFEBC5;
+  border-right: 1px solid #BFEBC5 !important;
 }
 
 .focused .input-group-text {
-  border-color: #e293d3;
+  border-color: #BFEBC5;
 }
 
 .form-check:not(.form-switch) .form-check-input[type="checkbox"],

@@ -180,10 +180,9 @@ if(isset($_POST['btn_editar'])){
                         <div class="row">
                             <label for="exampleInputEmail1">Datos personales</label>
                             <div class="col">
-                            <select class="form-control" id="exampleFormControlSelect1" name="sexo" reqired>
-                            <option>Sexo</option>
-                            <option value="F">Femenino</option>
-                            <option value="M">Masculino</option>
+                            <select class="form-control" id="exampleFormControlSelect1" name="sexo" required>
+                              <option  value="<?php if($fila['sexo']=="M"){echo"M";}else{echo"F";}?>"><?php if($fila['sexo']=="M"){echo"Masculino";}else{echo"Femenino";}?></option>
+                              <option value="<?php if($fila['sexo']=="F"){echo"M";}else{echo"F";}?>"><?php if($fila['sexo']=="F"){echo"Masculino";}else{echo"Femenino";}?></option>
                             </select>
                             </div>
                             <div class="col">
