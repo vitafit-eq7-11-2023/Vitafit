@@ -54,7 +54,7 @@
                         <br>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Ingrese su celular</label>
-                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="celular" name="tel" minlength="10">
+                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="celular" name="tel" minlength="10" required>
                         </div>
                         <br>
                         <div class="row">
