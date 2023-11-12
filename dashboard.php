@@ -357,7 +357,7 @@ include "conexion.php";
             <div class="col-lg-6">
               <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                 <li class="nav-item">
-                  <a href="https://instagram.com/vitafit_fo" class="nav-link text-muted" target="_blank">Vitafit</a>
+                  <a href="https://instagram.com/vitafit_fo" class="nav-link text-muted" target="_blank">VitaFit</a>
                 </li>
                 <li class="nav-item">
                   <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>

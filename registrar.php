@@ -15,8 +15,8 @@
             <div class="row">
                 <div class="col-md-12">
                   <br>
-                        <h1>Vitafit</H1>
-                        <h2>Registrate en Vitafit</h2>
+                        <h1>VitaFit</H1>
+                        <h2>Regístrate en Vitafit</h2>
                 </div>
             </div>
             <div class="row login">
@@ -43,7 +43,7 @@
                         </div>
                         <br>
                         <div class="row">
-                            <label for="exampleInputEmail1">ingrese apellidos</label>
+                            <label for="exampleInputEmail1">Ingrese apellidos</label>
                             <div class="col">
                             <input type="text" class="form-control" placeholder="primer apellido" name="ape1" required>
                             </div>
@@ -58,14 +58,14 @@
                         </div>
                         <br>
                         <div class="row">
-                          <label for="exampleFormControlSelect1">Tipo y numero de documento</label>
+                          <label for="exampleFormControlSelect1">Tipo y número de documento</label>
                           <div class="col-4">
                           <select class="form-control" id="exampleFormControlSelect1" name="t_doc" required>
                             <option>Seleccione</option>
                             <option value="TI">Tarjeta de identidad</option>
-                            <option value="CC">Cedula cuidadana</option>
+                            <option value="CC">Cédula de ciudadanía</option>
                             <option value="RC">Registro civil</option>
-                            <option value="CE">cedula de estranjeria</option>
+                            <option value="CE">Cédula de extranjería</option>
                           </select>
                           </div>
                           <div class="col-8">

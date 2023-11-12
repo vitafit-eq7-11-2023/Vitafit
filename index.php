@@ -15,8 +15,8 @@
             <div class="row">
                 <div class="col-md-12">
                         <br>
-                        <h1> Vitafit </H1>
-                        <h2>Ingresa a Vitafit</h2>
+                        <h1> VitaFit </H1>
+                        <h2>Ingresa a VitaFit</h2>
                 </div>
             </div>
             <div class="row login">
@@ -75,16 +75,16 @@
                         <br><br>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Ingrese su número de indentificacion.</label>
-                          <input class="form-control" id="exampleInputEmail1" placeholder="Numero de identificacion" name="doc">
+                          <input class="form-control" id="exampleInputEmail1" placeholder="Número de identificación" name="doc">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Ingrese la contraseña.</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="contraseña" name="contra">
+                          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="contra">
                         </div>
                         <br>
                         <button type="submit" class="btn_ingresar" name="btn_ingresar">Ingresar</button>
                         <br><br>
-                        <a href="recuperar.php">¿Has olvidado tu contraseña?</a> | <a href="registrar.php"> ¿No tienes cuenta?<br>Registrate </a>
+                        <a href="recuperar.php">¿Has olvidado tu contraseña?</a> | <a href="registrar.php"> ¿No tienes cuenta?<br>Regístrate </a>
                     </form>
                         </div>
                 </div>
