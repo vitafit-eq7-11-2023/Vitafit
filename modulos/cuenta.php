@@ -99,17 +99,13 @@ select:disabled{
                                         <input type="email" class="form-control" aria-describedby="emailHelp" id="exampleFormControlInput1" placeholder="name@example.com" name="correo"  value="<?php echo $fila['correo'];?>"required>
                                     </div>
                                     <div class="row">
-                                        <label for="exampleInputEmail1">Nombres</label>
+                                        <label for="exampleInputEmail1">Nombres y Apellidos</label>
                                         <div class="col">
                                             <input type="text" class="form-control" placeholder="primer nombre" name="name1" value="<?php echo $fila['primer_nombre'];?>"required>
                                         </div>
                                         <div class="col">
                                             <input type="text" class="form-control" placeholder="segundo nombre" name="name2" value="<?php echo $fila['segundo_nombre'];?>">
                                         </div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <label for="exampleInputEmail1">Apellidos</label>
                                         <div class="col">
                                             <input type="text" class="form-control" placeholder="primer apellido" name="ape1" value="<?php echo $fila['primer_apellido'];?>" required>
                                         </div>
@@ -141,20 +137,20 @@ select:disabled{
                                         </div>
                                     </div>
                                     <br>
-                                    <button type="submit" class="boton1" name="btn_actualizar">Cambiar informacion</button>
+                                    <button type="submit" class="boton1" name="btn_actualizar">Cambiar información</button>
                                 </form>
                                 <?php
                                     $admin= $_SESSION['rol'];
                                     if($admin==2){
                                 ?>
-                                    <a class="nav-link" href="dashboard.php?mod=usuarios">
+                                    <a href="dashboard.php?mod=usuarios">
                                      <button type="submit"class="boton1">Gestionar usuarios</button>
                                     </a>
                                 <?php
                                     }
                                 ?>
                                 <a href="salir.php">
-                                 <button type="submit" class="btn_eliminar">Cerrar sesion</button>
+                                 <button type="submit" class="btn_eliminar">Cerrar sesión</button>
                                 </a>
                                 <?php
                                     }
