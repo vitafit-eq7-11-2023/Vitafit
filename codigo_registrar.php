@@ -17,6 +17,10 @@ if (isset($_POST["btn_registrar"])){
     $contra = $_POST['contra'];
     $contra_con = $_POST['contra_confirm'];
     $encrip = md5($contra);
+    $consulta_numero = mysqli_query($conexion,"SELECT * FROM usuario WHERE numero_identificacion = '$doc';") or die ($conexion."Error en la consulta");
+    $cantidad_numero = mysqli_num_rows($consulta_numero);
+    $consulta_correo = mysqli_query($conexion,"SELECT * FROM usuario WHERE correo = '$correo';") or die ($conexion."Error en la consulta");
+    $cantidad_correo = mysqli_num_rows($consulta_correo);
     if($contra!=$contra_con){
         ?>
         <br>
@@ -38,7 +42,15 @@ if (isset($_POST["btn_registrar"])){
             ?>
             </h4>
             <?php
-          }else{
+          }else
+              if($cantidad_numero>0){
+                echo "<script>alert('El numero de indetificacion que proporcionas ya esta en uso');</script>";
+                echo "<script>window.location='registrar.php' ;</script>";
+              }else
+                  if($cantidad_correo>0){
+                    echo "<script>alert('El correo que proporcionas ya esta en uso');</script>";
+                    echo "<script>window.location='registrar.php' ;</script>";
+                  }else{
             $registrar = mysqli_query($conexion, "INSERT INTO `usuario` (`correo`, `primer_nombre`, `segundo_nombre`, `primer_apellido`, `segundo_apellido`, `celular`, `tipo_documento`, `numero_identificacion`, `edad`, `estatura`, `peso`, `sexo`, `contraseña`, `id_rol`) VALUES ('$correo', '$name1', '$name2', '$ape1', '$ape2', '$tel', '$tipo_doc', '$doc', '$age', '$altura', '$peso', '$sex', '$encrip', '$tipo_rol')") or die($conexion);
             $registrar_seguimiento = mysqli_query($conexion,"INSERT INTO `seguimiento` (`peso_inicial`, `rutina_realizada`, `dieta_cumplida`, `numero_identificacion`) VALUES ('$peso', '0', '0', '$doc')") or die($conexion);
             $registrar_plan = mysqli_query($conexion,"INSERT INTO `plan_alimenticio` (`id_plan`, `numero_identificacion`) VALUES ('', '$doc')") or die($conexion);
