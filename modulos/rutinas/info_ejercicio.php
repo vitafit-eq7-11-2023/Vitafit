@@ -22,6 +22,12 @@ if (isset($_POST["btn_ejercicio"])){
         <br>
         <h4>Instrucciones</h4>
         <p><?php echo $fila['descripcion'];?></p>
+        <br>
+        <h4>Video</h4>
+        <video style="border-radius:20px;"  autoplay loop>
+          <source src="img_ejercicio/<?php echo $fila['video']; ?>" type="video/mp4">
+        </video>
+        <br><br>
         </center>
       <?php
     }

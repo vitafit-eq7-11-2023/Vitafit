@@ -20,10 +20,13 @@ if (isset($_POST["btn_receta"])){
         <center>
         <h2><?php echo $fila['nombre'];?></h2>
         <br>
+        <img src="img_receta/<?php echo $fila['imagen']; ?>" alt="img_receta" width="400px">
+        <br><br>
         <h4>Ingredientes</h4>
         <p><?php echo $fila['ingredientes'];?></p>
         <h4>Paso a paso</h4>
         <p><?php echo $fila['descripcion'];?></p>
+
         </center>
       <?php
     }
