@@ -79,22 +79,8 @@
         background-image: url(modulos/img/rutina.jpg);
         background-repeat: no-repeat;
         background-size: 100%;
-        filter: brightness(0.6);
+
         position: relative;
-      }
-
-      #postre{
-        background-image: url(modulos/img/joga.jpg);
-        background-repeat: no-repeat;
-        background-size: 100%;
-        filter: brightness(0.6);
-      }
-
-      #snack{
-        background-image: url(modulos/img/cardio.jpg);
-        background-repeat: no-repeat;
-        background-size: 100%;
-        filter: brightness(0.6);
       }
     </style>
   

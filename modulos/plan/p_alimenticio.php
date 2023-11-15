@@ -76,28 +76,13 @@
         background-image: url(modulos/img/Breakfast.jpg);
         background-repeat: no-repeat;
         background-size: 100%;
-        filter: brightness(0.7);
         position: relative;
-      }
-
-      #postre{
-        background-image: url(modulos/img/dessert.jpg);
-        background-repeat: no-repeat;
-        background-size: 100%;
-        filter: brightness(0.6);
-      }
-
-      #snack{
-        background-image: url(modulos/img/snack.jpg);
-        background-repeat: no-repeat;
-        background-size: 100%;
-        filter: brightness(0.6);
       }
     </style>
   
       <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold" style="color: black;">Platos principales</h1>
-        <p class="col-md-8 fs-4" style="color: black;">Qué tal si para empezar hacemos un desayuno balanceado con bastantes calorías para tener energía a través de todo el día y para aumentar esos kilos que deseas.</p>
+        <h1 class="display-5 fw-bold" style="color: white;">Platos principales</h1>
+        <p class="col-md-8 fs-4" style="color: white;">¡Comienza hoy mismo y disfruta del viaje hacia una versión más saludable y feliz de ti!</p>
         <a 
         <?php
         $documento=$_SESSION['documento'];
