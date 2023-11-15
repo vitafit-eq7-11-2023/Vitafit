@@ -74,7 +74,7 @@
                         <img src="img/vitafit_logo.png" alt="vitafit_logo" width="300">
                         <br><br>
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Ingrese su número de indentificacion.</label>
+                          <label for="exampleInputEmail1">Ingrese su número de identificacion.</label>
                           <input class="form-control" id="exampleInputEmail1" placeholder="Número de identificación" name="doc">
                         </div>
                         <div class="form-group">

@@ -10,3 +10,4 @@ if (isset($_POST["btn_calculo"])){
     echo "<script>window.location='dashboard.php?mod=calculadora' ;</script>";
 }
 ?>
+

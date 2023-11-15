@@ -136,20 +136,20 @@ select:disabled{
                                         </div>
                                     </div>
                                     <br>
-                                    <button type="submit" class="boton1" name="btn_actualizar">Cambiar informacion</button>
+                                    <button type="submit" class="boton1" name="btn_actualizar">Cambiar información</button>
                                 </form>
                                 <?php
                                     $admin= $_SESSION['rol'];
                                     if($admin==2){
                                 ?>
-                                    <a class="nav-link" href="dashboard.php?mod=usuarios">
+                                    <a href="dashboard.php?mod=usuarios">
                                      <button type="submit"class="boton1">Gestionar usuarios</button>
                                     </a>
                                 <?php
                                     }
                                 ?>
                                 <a href="salir.php">
-                                 <button type="submit" class="btn_eliminar">Cerrar sesion</button>
+                                 <button type="submit" class="btn_eliminar">Cerrar sesión</button>
                                 </a>
                                 <?php
                                     }

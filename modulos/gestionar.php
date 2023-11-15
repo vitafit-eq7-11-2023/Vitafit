@@ -89,7 +89,8 @@
           $estatura=$_POST['altura'];
           $peso=$_POST['peso'];
           $sexo=$_POST['sexo'];
-          $actualizacion=mysqli_query($conexion,"UPDATE `usuario` SET `correo` = '$correo', `primer_nombre` = '$primer_nombre', `segundo_nombre` = '$segundo_nombre', `primer_apellido` = '$primer_apellido', `segundo_apellido` = '$segundo_apellido', `edad` = '$edad', `estatura` = '$estatura', `peso` = '$peso', `sexo` = '$sexo' WHERE `usuario`.`numero_identificacion` = '$doc_change';");
+          $rol=$_POST['rol'];
+          $actualizacion=mysqli_query($conexion,"UPDATE `usuario` SET `correo` = '$correo', `primer_nombre` = '$primer_nombre', `segundo_nombre` = '$segundo_nombre', `primer_apellido` = '$primer_apellido', `segundo_apellido` = '$segundo_apellido', `edad` = '$edad', `estatura` = '$estatura', `peso` = '$peso', `sexo` = '$sexo', `id_rol` = '$rol' WHERE `usuario`.`numero_identificacion` = '$doc_change';");
           echo "usuario actualizado con exito";
         }
       
@@ -176,7 +177,6 @@ if(isset($_POST['btn_editar'])){
                           <label for="exampleInputPassword1">Ingrese su celular</label>
                           <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="celular" name="tel" value="<?php echo $fila['celular'];?>">
                         </div>
-                        <br>
                         <div class="row">
                             <label for="exampleInputEmail1">Datos personales</label>
                             <div class="col">
@@ -194,6 +194,13 @@ if(isset($_POST['btn_editar'])){
                             <div class="col">
                             <input type="text" class="form-control" placeholder="Altura en cm" name="altura" value="<?php echo $fila['estatura'];?>" required>
                             </div>
+                        </div>
+                        <div class="col">
+                          <label for="exampleInputEmail1">Rol</label>
+                          <select class="form-control" id="exampleFormControlSelect1" name="rol" required>
+                            <option  value="<?php if($fila['id_rol']=="1"){echo"1";}else{echo"2";}?>"><?php if($fila['id_rol']=="1"){echo"Usuario";}else{echo"Administrador";}?></option>
+                            <option value="<?php if($fila['id_rol']=="2"){echo"1";}else{echo"2";}?>"><?php if($fila['id_rol']=="2"){echo"usuario";}else{echo"Administrador";}?></option>
+                          </select>
                         </div>
                         <br>
                         <button type="submit" class="btn_consulta" name="btn_actualizar">Actualizar</button>
