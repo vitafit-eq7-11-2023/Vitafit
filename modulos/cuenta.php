@@ -99,17 +99,13 @@ select:disabled{
                                         <input type="email" class="form-control" aria-describedby="emailHelp" id="exampleFormControlInput1" placeholder="name@example.com" name="correo"  value="<?php echo $fila['correo'];?>"required>
                                     </div>
                                     <div class="row">
-                                        <label for="exampleInputEmail1">Nombres</label>
+                                        <label for="exampleInputEmail1">Nombres y Apellidos</label>
                                         <div class="col">
                                             <input type="text" class="form-control" placeholder="primer nombre" name="name1" value="<?php echo $fila['primer_nombre'];?>"required>
                                         </div>
                                         <div class="col">
                                             <input type="text" class="form-control" placeholder="segundo nombre" name="name2" value="<?php echo $fila['segundo_nombre'];?>">
                                         </div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <label for="exampleInputEmail1">Apellidos</label>
                                         <div class="col">
                                             <input type="text" class="form-control" placeholder="primer apellido" name="ape1" value="<?php echo $fila['primer_apellido'];?>" required>
                                         </div>
@@ -117,9 +113,8 @@ select:disabled{
                                             <input type="text" class="form-control" placeholder="segundo apellido" name="ape2" value="<?php echo $fila['segundo_apellido'];?>">
                                         </div>
                                     </div>
-                                    <br>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Celular</label>
+                                        <label for="exampleInputPassword1" style="margin-top:15px;">Celular</label>
                                         <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="celular" name="tel" value="<?php echo $fila['celular'];?>">
                                     </div>
                                     <div class="row">

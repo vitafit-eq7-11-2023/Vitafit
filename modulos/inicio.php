@@ -25,7 +25,7 @@
         margin-right: 20px;
         margin-top: 10px;
     }
-    .container-seguimiento:hover{
+    .tin:hover{
         cursor: pointer;
     }
 </style>
@@ -62,7 +62,7 @@ if ($hora>=12 and $hora<=18)
 <br>
 <h4>Tu proceso</h4>
 
-<div class="container-pre" onclick="window.location.href='dashboard.php?mod=seguimiento'">
+<div class="container-pre tin" onclick="window.location.href='dashboard.php?mod=seguimiento'">
 <div class="row ">
 <div class="col-md-6">
 	<canvas id="grafica" style="margin:10px;"></canvas>

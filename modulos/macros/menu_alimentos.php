@@ -13,7 +13,6 @@
         border: none;
         border-radius: 5px;
         font-size: 16px;
-        cursor: pointer;
         transition: transform 0.3s ease;
     }
     .btn_consulta:hover{

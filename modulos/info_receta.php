@@ -7,7 +7,7 @@
 include "conexion.php";
 if (isset($_POST["btn_receta"])){
     $dato=$_POST["nombre_receta"];
-    $consulta=mysqli_query($conexion,"SELECT * FROM receta WHERE nombre LIKE '%$dato%';") or die ($conexion."Error en la consulta");
+    $consulta=mysqli_query($conexion,"SELECT * FROM receta WHERE nombre = '$dato';") or die ($conexion."Error en la consulta");
     $cantidad = mysqli_num_rows($consulta);
     if($cantidad > 0){
     while($fila=mysqli_fetch_array($consulta)){
@@ -28,9 +28,6 @@ if (isset($_POST["btn_receta"])){
       <?php
     }
     }
-}else{
-    $nombre = "Espaguetis de calabacín con revuelto de setas";
-    echo $nombre;
 }
 ?>
 </div>
