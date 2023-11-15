@@ -29,13 +29,13 @@
                       <br><br>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Ingrese correo</label>
-                            <input type="email" class="form-control" aria-describedby="emailHelp" id="exampleFormControlInput1" placeholder="name@example.com" name="correo" required>
+                            <input type="email" class="form-control" aria-describedby="emailHelp" id="exampleFormControlInput1" placeholder="Ej: name@example.com*" name="correo" required>
                             <small id="emailHelp" class="form-text text-muted">No compartas tu correo con nadie</small>
                         </div>
                         <div class="row">
                             <label for="exampleInputEmail1">Ingrese nombres</label>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="primer nombre" name="name1" required>
+                            <input type="text" class="form-control" placeholder="primer nombre*" name="name1" required>
                             </div>
                             <div class="col">
                             <input type="text" class="form-control" placeholder="segundo nombre" name="name2">
@@ -45,7 +45,7 @@
                         <div class="row">
                             <label for="exampleInputEmail1">Ingrese apellidos</label>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="primer apellido" name="ape1" required>
+                            <input type="text" class="form-control" placeholder="primer apellido*" name="ape1" required>
                             </div>
                             <div class="col">
                             <input type="text" class="form-control" placeholder="segundo apellido" name="ape2">
@@ -54,14 +54,14 @@
                         <br>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Ingrese su celular</label>
-                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="celular" name="tel" minlength="10" required>
+                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="Celular*" name="tel" minlength="10" required>
                         </div>
                         <br>
                         <div class="row">
                           <label for="exampleFormControlSelect1">Tipo y número de documento</label>
                           <div class="col-4">
                           <select class="form-control" id="exampleFormControlSelect1" name="t_doc" required>
-                            <option>Seleccione</option>
+                            <option>Seleccione*</option>
                             <option value="TI">Tarjeta de identidad</option>
                             <option value="CC">Cédula de ciudadanía</option>
                             <option value="RC">Registro civil</option>
@@ -69,7 +69,7 @@
                           </select>
                           </div>
                           <div class="col-8">
-                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="Documento" name="doc" minlength="8" maxlength="15" required>
+                          <input type="doc" class="form-control" id="exampleInputEmail1" placeholder="Documento*" name="doc" minlength="8" maxlength="15" required>
                           </div>  
                         </div>
                         <br>
@@ -77,29 +77,29 @@
                             <label for="exampleInputEmail1">Datos personales</label>
                             <div class="col">
                             <select class="form-control" id="exampleFormControlSelect1" name="sexo">
-                            <option>Sexo</option>
+                            <option>Sexo*</option>
                             <option value="F">Femenino</option>
                             <option value="M">Masculino</option>
                             </select>
                             </div>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Edad" name="edad" required>
+                            <input type="text" class="form-control" placeholder="Edad*" name="edad" required>
                             </div>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Peso en kg" name="peso" required>
+                            <input type="text" class="form-control" placeholder="Peso en kg*" name="peso" required>
                             </div>
                             <div class="col">
-                            <input type="text" class="form-control" placeholder="Altura en cm" name="altura" required>
+                            <input type="text" class="form-control" placeholder="Altura en cm*" name="altura" required>
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <label for="exampleInputEmail1">Ingresar contraseña</label>
+                            <label for="exampleInputEmail1">Ingresar contraseña*</label>
                             <div class="col">
-                              <input type="password" class="form-control" placeholder="Contraseña" name="contra" minlength="8" minlength="100" required>
+                              <input type="password" class="form-control" placeholder="Contraseña*" name="contra" minlength="8" minlength="100" required>
                             </div>
                             <div class="col">
-                              <input type="password" class="form-control" placeholder="Confirmar contraseña" name="contra_confirm" minlength="8" minlength="100" required>
+                              <input type="password" class="form-control" placeholder="Confirmar contraseña*" name="contra_confirm" minlength="8" minlength="100" required>
                             </div>
                         </div>
                         <br>
