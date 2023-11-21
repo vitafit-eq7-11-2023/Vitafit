@@ -26,7 +26,8 @@ if (isset($_POST["btn_receta"])){
         <p><?php echo $fila['ingredientes'];?></p>
         <h4>Paso a paso</h4>
         <p><?php echo $fila['descripcion'];?></p>
-
+        <br>
+        <p>Nuestras recetas fueron investigadas profundamente para ofrecer algo adecuado, puedes ver mas informacion aqui: <a href="https://docs.google.com/document/d/1DW2Hf-Me24aAY077GGSjm1iL3AM9XsXt/edit?usp=sharing&ouid=115215555362773953679&rtpof=true&sd=true" class="nav-link text-muted" target="_blank">¡Click!</a></p>
         </center>
       <?php
     }

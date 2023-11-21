@@ -27,7 +27,9 @@ if (isset($_POST["btn_ejercicio"])){
         <video style="border-radius:20px;"  autoplay loop>
           <source src="img_ejercicio/<?php echo $fila['video']; ?>" type="video/mp4">
         </video>
-        <br><br>
+        <br>
+        <br>
+        <p>Nuestros ejercicios estan aprovados por un entrenador personal, si deseas saber mas de el puedes visitarlo aqui:<a href="https://instagram.com/j_camiloz" class="nav-link text-muted" target="_blank"><box-icon type="logo" name="instagram" color="black"></box-icon></a></p>
         </center>
       <?php
     }

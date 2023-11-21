@@ -36,6 +36,7 @@
   <div class="form-group">
     <br>
     <h3>Alimentos</h3>
+    <p>Todos los alimentos de esta lista fueron investigados en fuentes confiables, puedes ver mas acerca de esto aqui: <a href="https://docs.google.com/document/d/18SIuTUwP7zXOR3yaIMZblO7RWN5dWPCr/edit?usp=sharing&ouid=115215555362773953679&rtpof=true&sd=true" class="nav-link text-muted" target="_blank">¡Click!</a></p>
     <div class="row">
       <div class="col-md-10">
         <input type="text" class="form-control" name="txtconsulta" placeholder="Nombre">
